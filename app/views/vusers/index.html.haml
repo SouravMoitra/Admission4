@@ -1,0 +1,36 @@
+%h1 Verfiers Page
+.container-fluid
+  .row
+    .col-md-12
+      .panel.panel-primary
+        .panel-heading
+          Search
+          %span{class: "glyphicon glyphicon-search"}
+        .panel-body
+          %form{action: "/verify/", method: "get"}
+            %input{type: "text", id: "search", name: "search", class: "form-control input-width-50"}
+            %input{type: "submit", value: "Search", class: "btn btn-primary"}
+  .row
+    = render 'user'
+
+    .col-md-6
+      .panel.panel-info
+        .panel-heading
+          Candidate List
+        .panel-body
+          = will_paginate @users, class: "pagination"
+          .table-responsive
+            %table.table.table-hover
+              %tr
+                %th User ID
+                %th Email
+                %th First Name
+              - @users.each do |user|
+                %tr
+                  %td
+                    = user.id
+                  %td
+                    = user.email
+                  %td
+                    = user.personal.first_name if user.personal
+          = will_paginate @users

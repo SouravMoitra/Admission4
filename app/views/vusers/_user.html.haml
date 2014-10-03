@@ -1,0 +1,113 @@
+.col-md-6
+  .panel.panel-danger
+    .panel-heading
+      Candidate Details
+    .panel-body
+      -if @user
+        .table-responsive
+          %table.table.table-hover
+            %tr
+              %td.warning{colspan: "2"} Personal Details
+            %tr
+              %td.info User ID
+              %td
+                = @user.id
+            %tr
+              %td.info Email
+              %td
+                = @user.email
+
+            - if @user.try(:personal)
+              %tr
+                %td.info First name
+                %td
+                  = @user.personal.first_name
+              %tr
+                %td.info Last name
+                %td
+                  = @user.personal.last_name
+              %tr
+                %td.info Date of Birth
+                %td
+                  = @user.personal.date_of_birth
+              %tr
+                %td.info Mother's Name
+                %td
+                  = @user.personal.mothers_name
+              %tr
+                %td.info Father's name
+                %td
+                  = @user.personal.fathers_name
+              %tr
+                %td.info Gender
+                %td
+                  = @user.personal.gender
+              %tr
+                %td.info Category
+                %td
+                  = @user.personal.category
+              %tr
+                %td.info Address
+                %td
+                  = @user.personal.address
+              %tr
+                %td.info Mobile
+                %td
+                  = @user.personal.mobile_no
+
+            - if @user.try(:academic)
+              %tr
+                %td.warning{colspan: "2"} Academic Details
+              %tr
+                %td.info Tenth Roll no.
+                %td
+                  = @user.academic.tenth_rollno
+              %tr
+                %td.info Tenth Marks
+                %td
+                  = @user.academic.tenth_marks
+              %tr
+                %td.info Tenth Board
+                %td
+                  = @user.academic.tenth_board
+              %tr
+                %td.info Tenth Year
+                %td
+                  = @user.academic.tenth_year
+              %tr
+                %td.info Twelfth Roll no.
+                %td
+                  = @user.academic.twelfth_rollno
+              %tr
+                %td.info Twelfth Marks
+                %td
+                  = @user.academic.twelfth_marks
+              %tr
+                %td.info Twelfth Board
+                %td
+                  = @user.academic.twelfth_board
+              %tr
+                %td.info Twelfth Year
+                %td
+                  = @user.academic.twelfth_year
+            - if @user.academic.try(:subject_entries)
+              %tr
+                %td.warning{colspan: "2"} 12th Subject Details
+              - @user.academic.subject_entries.each do |se|
+                %tr
+                  %td.info
+                    = Subject.find(se.subject_id).name
+                  %td
+                    = se.marks
+        - if @user.stream_selector && @user.stream_selector.verified === false
+          %form{action: "/verify/", method: "get"}
+            %input{type: "hidden", id: "str_sle_id", name: "str_sle_id", value: "#{@user.stream_selector.id}"}
+            %input{type: "hidden", id: "verified", name: "verified", value: "true"}
+            %input{type: "hidden", id: "search", name: "search", value: "#{@user.id}"}
+            %input{type: "submit", value: "Verify", class: "btn btn-warning", data: {confirm: "Are you sure ?"}}
+        - elsif @user.stream_selector && @user.stream_selector.verified === true
+          %div.btn.btn-success
+            Information has been verfied
+        - else
+          .btn.btn-danger
+            Information insufficient

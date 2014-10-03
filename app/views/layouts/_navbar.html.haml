@@ -1,0 +1,38 @@
+%nav.navbar.navbar-default{:role => "navigation"}
+  .container-fluid
+    .navbar-header
+      %button.navbar-toggle.collapsed{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{:href => "/"} College
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          %a{:href => "/help"} Help
+        %li
+          %a{:href => "/contact"} Contact
+        %li
+          %a{:href => "/about"} About
+          - if user_signed_in?
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                %span{class: "glyphicon glyphicon-user"}
+                %span.caret
+              %ul.dropdown-menu{:role => "menu"}
+                %li
+                  %a{:href => "#"} Action
+                %li
+                  %a{:href => "#"} Another action
+                %li
+                  =link_to "Edit password", edit_user_registration_path
+                %li.divider
+                %li
+                  =link_to "Sign out", sign_out_path, method: "delete", data: {confirm: "Are you sure to sign out ?"}
+
+          - else
+            %li
+              =link_to "Sign up", sign_up_path, "data-no-turbolink" => true
+            %li
+              =link_to "Sign in", sign_in_path

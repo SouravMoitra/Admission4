@@ -1,0 +1,7 @@
+- provide(:title, "Home")
+- if is_admin?
+  = render 'admin'
+- elsif  is_verifier?
+  = render 'verify'
+- else
+  = render 'user'

@@ -1,0 +1,134 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
+$greenish-color: #B9F0CC;
+$def-border-radius: 5px;
+$bak-error: #FFC6C6;
+$bak-error: #F3A9A9;
+
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+html {
+  background-color: #808E84;
+}
+
+body {
+  width: 70%;
+  margin: 0 auto;
+  font-family: 'Droid Sans', sans-serif;
+  padding: 10px;
+}
+
+
+footer {
+  padding: 10px 15px;
+  margin: 10px 0 0 0;
+  background-color: #167337;
+  border-radius: $def-border-radius;
+  color: $greenish-color;
+  .footer-right {
+    float: right;
+    a {
+      color: $greenish-color;
+      text-decoration: none;
+      &:hover {
+        background-color: #FFFF00;
+        color: #000000;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    width: 100%;
+    margin: 0;
+    }
+}
+
+.carousel {
+  img {
+    width: 100%;
+    min-height: 250px;
+  }
+}
+
+.signing {
+  text-align: center;
+  border: 2px solid #666B67;
+  border-radius: 5px;
+  padding: 4px;
+  input[type="email"], input[type="password"], input[type="submit"], input[type="text"] {
+    width: 100%;
+    padding: 2px;
+    font-size: 1.5em;
+    text-align: center;
+    border: 1px solid #cccccc;
+    color: #5C3921;
+  }
+}
+
+
+
+.field_with_errors {
+  @extend .control-group;
+  @extend .error;
+  input {
+    border: 1px solid red;
+    &:focus {
+      border: 1px solid red
+    }
+  }
+}
+
+#error_explanation {
+  color: #f00;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+  h2 {
+    font-size: 20px;
+    background-color: $bak-error;
+    padding: 8px;
+    border-radius: 5px;
+  }
+}
+
+
+.alert {
+  margin: 5px 10px;
+}
+
+
+.alert-alert {
+  @extend .alert-danger;
+}
+
+.alert-notice {
+  @extend .alert-success;
+}
+
+.status-marker {
+  text-align: center;
+}
+
+.table {
+  text-align: center;
+}
+
+thead {
+  font-weight: bolder;
+}
+
+.input-width-50 {
+  width: 49%;
+  display: inline;
+}
+
+#making-inline {
+  display: inline;
+}

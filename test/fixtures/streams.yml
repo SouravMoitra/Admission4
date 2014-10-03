@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  GEN: 1
+  SC: 1
+  ST: 1
+  OBC_A: 1
+  OBC_B: 1
+
+two:
+  name: MyString
+  GEN: 1
+  SC: 1
+  ST: 1
+  OBC_A: 1
+  OBC_B: 1

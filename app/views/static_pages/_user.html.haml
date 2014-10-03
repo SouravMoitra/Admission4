@@ -1,0 +1,24 @@
+%h1 Welcome to Admission Site Home page
+.container-fluid
+  .row
+    %p.status-marker.col-md-4
+      - unless current_user.personal
+        = link_to "Personal Details", new_personal_path, class: "btn btn-danger"
+      - else
+        %span{class: "btn btn-success"}
+          Personal Details
+          %span{class: "glyphicon glyphicon-ok-sign"}
+    %p.status-marker.col-md-4
+      - unless current_user.academic
+        = link_to "Academic Details", new_academic_path, class: "btn btn-danger"
+      - else
+        %span{class: "btn btn-success"}
+          Academic details
+          %span{class: "glyphicon glyphicon-ok-sign"}
+    %p.status-marker.col-md-4
+      - unless current_user.stream_selector
+        = link_to "Stream  selector", new_stream_selector_path, class: "btn btn-danger"
+      - else
+        %span{class: "btn btn-success"}
+          Stream selected
+          %span{class: "glyphicon glyphicon-ok-sign"}

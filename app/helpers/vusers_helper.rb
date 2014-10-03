@@ -1,0 +1,2 @@
+module VusersHelper
+end
