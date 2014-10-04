@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   get 'about'   => 'static_pages#about'
   get 'contact' => 'static_pages#contact'
   get '/verify' => 'vusers#index'
-  
 
-  resources :streams, except: [:show]
+
+  resources :streams
   resources :subjects, except: [:show]
   resources :sub_str_maps, except: [:show]
   resources  :academics, only: [:new, :create]

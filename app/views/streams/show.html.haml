@@ -1,2 +1,77 @@
-%h1 Streams#show
-%p Find me in app/views/streams/show.html.haml
+%h1
+  = @stream.name
+.panel.panel-info
+  .panel-heading
+    General Result
+  .panel-body
+    .table-responsive
+      %table.table-hover.table-custom
+        %tr
+          %th Rank
+          %th ID
+        - @gens.each_with_index do |row, index|
+          %tr
+            %td
+              = index + 1
+            %td
+              = row[0]
+.panel.panel-info
+  .panel-heading
+    Schedule caste Result
+  .panel-body
+    .table-responsive
+      %table.table-hover.table-custom
+        %tr
+          %th Rank
+          %th ID
+        - @scs.each_with_index do |row, index|
+          %tr
+            %td
+              = index + 1
+            %td
+              = row[0]
+.panel.panel-info
+  .panel-heading
+    Schedule Caste Result
+  .panel-body
+    .table-responsive
+      %table.table-hover.table-custom
+        %tr
+          %th Rank
+          %th ID
+        - @sts.each_with_index do |row, index|
+          %tr
+            %td
+              = index + 1
+            %td
+              = row[0]
+.panel.panel-info
+  .panel-heading
+    Other Backward Caste 'A' Result
+  .panel-body
+    .table-responsive
+      %table.table-hover.table-custom
+        %tr
+          %th Rank
+          %th ID
+        - @obcas.each_with_index do |row, index|
+          %tr
+            %td
+              = index + 1
+            %td
+              = row[0]
+.panel.panel-info
+  .panel-heading
+    Other Backward Caste 'B' Result
+  .panel-body
+    .table-responsive
+      %table.table-hover.table-custom
+        %tr
+          %th Rank
+          %th ID
+        - @obcbs.each_with_index do |row, index|
+          %tr
+            %td
+              = index + 1
+            %td
+              = row[0]

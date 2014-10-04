@@ -1,6 +1,7 @@
 class StreamsController < ApplicationController
 
-  before_action :admin_signin_status
+  before_action :admin_signin_status, except: [:show]
+  before_action :user_signin_status, only: [:show]
 
   def index
     @streams = Stream.all
@@ -42,6 +43,12 @@ class StreamsController < ApplicationController
   end
 
   def show
+    @stream = Stream.find(params[:id])
+    @gens = process_result(@stream.id, "GEN")
+    @scs = process_result(@stream.id, "SC")
+    @sts = process_result(@stream.id, "ST")
+    @obcas = process_result(@stream.id, "OBC_A")
+    @obcbs = process_result(@stream.id, "OBC_B")
   end
 
   private
@@ -50,5 +57,13 @@ class StreamsController < ApplicationController
     params.require(:stream).permit(:name, :GEN, :SC, :ST, :OBC_A, :OBC_B)
   end
 
+  def process_result(stream_id, category)
+    sql = "select stream_selectors.user_id from
+           stream_selectors inner join personals on
+           stream_selectors.user_id = personals.user_id
+           where personals.category = '#{category}' and stream_selectors.stream_id = #{stream_id} and verified = true
+           order by stream_selectors.calculated_marks"
+    ActiveRecord::Base.connection.execute(sql)
+  end
 
 end
