@@ -13,40 +13,45 @@ $bak-error: #F3A9A9;
 
 html {
   background-color: #808E84;
+  height: 100%;
 }
-
 body {
   width: 70%;
-  margin: 50px auto 0 auto;
+  margin: 50px auto 20px auto;
   font-family: 'Droid Sans', sans-serif;
   padding: 10px;
-}
-
-
-footer {
-  padding: 10px 15px;
-  margin: 10px 0 0 0;
-  background-color: #167337;
-  border-radius: $def-border-radius;
-  color: $greenish-color;
-  .footer-right {
-    float: right;
-    a {
-      color: $greenish-color;
-      text-decoration: none;
-      &:hover {
-        background-color: #FFFF00;
-        color: #000000;
+  min-height: 100%;
+  footer {
+    padding: 10px 15px;
+    background-color: #167337;
+    border-radius: $def-border-radius;
+    color: $greenish-color;
+    .footer-right {
+      float: right;
+      a {
+        color: $greenish-color;
+        text-decoration: none;
+        &:hover {
+          background-color: #FFFF00;
+          color: #000000;
+        }
       }
     }
   }
 }
+
 
 @media (max-width: 768px) {
   body {
     width: 100%;
     margin: 50px 0 0 0;
     }
+}
+
+@media (max-height: 300px) {
+  footer{
+    display: none;
+  }
 }
 
 .carousel {
