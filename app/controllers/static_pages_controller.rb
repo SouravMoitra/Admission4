@@ -5,6 +5,7 @@ class StaticPagesController < ApplicationController
   end
 
   def home
+    @user = current_user
   end
 
   def about
@@ -13,7 +14,7 @@ class StaticPagesController < ApplicationController
   def contact
   end
 
-  
+
 
   private
     def user_signin_status
