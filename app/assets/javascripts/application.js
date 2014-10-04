@@ -16,8 +16,9 @@
 //= require turbolinks
 //= require_tree .
 
-$('.carousel').carousel()
+
 
 $(function(){
   $(".alert").alert();
+  //$('#carousel-example-generic').carousel();
 });
