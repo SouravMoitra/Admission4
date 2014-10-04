@@ -46,5 +46,5 @@
             = text_area :personal, :address, size: "2x2", class: "form-control", :required => true
           %p
             = f.label  "Mobile"
-            = f.number_field :mobile_no,pattern: "/[7-9]{1}[0-9]{9}/", class: "form-control", :required => true
+            = f.text_field :mobile_no,pattern: "[7-9]{1}[0-9]{9}", class: "form-control", :required => true
           %p= f.submit "Submit", class: "btn btn-primary btn-lg", data: {confirm: "Are you sure information once submitted cant be modified ?"}
