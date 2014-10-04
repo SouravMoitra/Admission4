@@ -14,16 +14,16 @@
 ActiveRecord::Schema.define(version: 20141003064451) do
 
   create_table "academics", force: true do |t|
-    t.integer  "user_id",        null: false
-    t.integer  "tenth_rollno",   null: false
-    t.integer  "tenth_marks",    null: false
-    t.integer  "tenth_year",     null: false
-    t.string   "tenth_board",    null: false
-    t.integer  "twelfth_stream", null: false
-    t.integer  "twelfth_rollno", null: false
-    t.integer  "twelfth_marks",  null: false
-    t.integer  "twelfth_year",   null: false
-    t.integer  "twelfth_board",  null: false
+    t.integer  "user_id",                                                null: false
+    t.integer  "tenth_rollno",                                           null: false
+    t.decimal  "tenth_marks",    precision: 10, scale: 2, default: 40.0, null: false
+    t.integer  "tenth_year",                                             null: false
+    t.string   "tenth_board",                                            null: false
+    t.integer  "twelfth_stream",                                         null: false
+    t.integer  "twelfth_rollno",                                         null: false
+    t.decimal  "twelfth_marks",  precision: 10, scale: 2, default: 40.0, null: false
+    t.integer  "twelfth_year",                                           null: false
+    t.integer  "twelfth_board",                                          null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20141003064451) do
     t.integer  "user_id"
     t.string   "first_name",    default: "", null: false
     t.string   "last_name",     default: "", null: false
-    t.datetime "date_of_birth",              null: false
+    t.date     "date_of_birth",              null: false
     t.string   "mothers_name",  default: "", null: false
     t.string   "fathers_name",  default: "", null: false
     t.string   "gender",                     null: false
