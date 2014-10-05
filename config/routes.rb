@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
--#***************************************************************************#
--#   Created by : Sourav Moitra                                              #
--#   email : astrosourav@gmail.com                                           #
--#   License : The MIT License (MIT)                                         #
--#   Date : October 5th 2014                                                 #
--#***************************************************************************#
+#***************************************************************************#
+#   Created by : Sourav Moitra                                              #
+#   email : astrosourav@gmail.com                                           #
+#   License : The MIT License (MIT)                                         #
+#   Date : October 5th 2014                                                 #
+#***************************************************************************#
 
   root             'static_pages#home'
   get 'help'    => 'static_pages#help'
