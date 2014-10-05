@@ -10,8 +10,8 @@ class CreateAcademics < ActiveRecord::Migration
       t.integer :twelfth_rollno,   null: false
       t.decimal :twelfth_marks,    null: false, precision: 10, scale: 2, default: 40.0
       t.integer :twelfth_year,     null: false
-      t.integer :twelfth_stream,   null: false
-      t.integer :twelfth_board, null: false
+      t.string :twelfth_stream,   null: false
+      t.string :twelfth_board, null: false
 
       t.timestamps
     end

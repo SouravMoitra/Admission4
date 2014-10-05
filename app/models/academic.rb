@@ -27,8 +27,8 @@ class Academic < ActiveRecord::Base
 
   # strips down white spaces
   def strip_strings
-    self.tenth_board = tenth_board
-    self.twelfth_board = twelfth_board
-    self.twelfth_stream = twelfth_stream
+    self.tenth_board = tenth_board.strip
+    self.twelfth_board = twelfth_board.strip
+    self.twelfth_stream = twelfth_stream.strip
   end
 end

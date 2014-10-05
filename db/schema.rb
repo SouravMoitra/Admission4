@@ -19,11 +19,11 @@ ActiveRecord::Schema.define(version: 20141003064451) do
     t.decimal  "tenth_marks",    precision: 10, scale: 2, default: 40.0, null: false
     t.integer  "tenth_year",                                             null: false
     t.string   "tenth_board",                                            null: false
-    t.integer  "twelfth_stream",                                         null: false
+    t.string   "twelfth_stream",                                         null: false
     t.integer  "twelfth_rollno",                                         null: false
     t.decimal  "twelfth_marks",  precision: 10, scale: 2, default: 40.0, null: false
     t.integer  "twelfth_year",                                           null: false
-    t.integer  "twelfth_board",                                          null: false
+    t.string   "twelfth_board",                                          null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

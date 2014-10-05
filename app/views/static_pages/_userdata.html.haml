@@ -71,37 +71,41 @@
             %tr
               %td.warning{colspan: "2"} Academic Details
             %tr
-              %td.info Tenth Roll no.
+              %td.info 10th Roll no.
               %td
                 = @user.academic.tenth_rollno
             %tr
-              %td.info Tenth Marks
+              %td.info 10th Marks
               %td
                 = @user.academic.tenth_marks
             %tr
-              %td.info Tenth Board
+              %td.info 10th Board
               %td
                 = @user.academic.tenth_board
             %tr
-              %td.info Tenth Year
+              %td.info 10th Year
               %td
                 = @user.academic.tenth_year
             %tr
-              %td.info Twelfth Roll no.
+              %td.info 12th Roll no.
               %td
                 = @user.academic.twelfth_rollno
             %tr
-              %td.info Twelfth Marks
+              %td.info 12th Marks
               %td
                 = @user.academic.twelfth_marks
             %tr
-              %td.info Twelfth Board
+              %td.info 12th Board
               %td
                 = @user.academic.twelfth_board
             %tr
-              %td.info Twelfth Year
+              %td.info 12th Year
               %td
                 = @user.academic.twelfth_year
+            %tr
+              %td.info 12th Stream
+              %td
+                = @user.academic.twelfth_stream
             - if @user.academic.try(:subject_entries)
               %tr
                 %td.warning{colspan: "2"} 12th Subject Details
