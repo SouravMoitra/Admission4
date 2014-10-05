@@ -20,4 +20,14 @@ class Academic < ActiveRecord::Base
   validates :tenth_rollno, presence: true
   validates :twelfth_rollno, presence: true
   validates :twelfth_stream, presence: true
+
+  before_validation :strip_strings
+
+  private
+
+  def strip_strings
+    self.tenth_board = tenth_board
+    self.twelfth_board = twelfth_board
+    self.twelfth_stream = twelfth_stream
+  end
 end

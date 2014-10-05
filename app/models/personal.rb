@@ -16,4 +16,18 @@ class Personal < ActiveRecord::Base
   validates :mothers_name, presence: true, length: { maximum: 50}
   validates :mobile_no, presence: true , :format => { :with => /[7-9]{1}[0-9]{9}/ }
   validates :address, presence: true, length: { in: 10..100 }
+
+  before_validation :strip_strings
+
+  private
+
+  def strip_strings
+    self.first_name = first_name
+    self.last_name = last_name
+    self.gender = gender
+    self.category = category
+    self.fathers_name = fathers_name
+    self.mothers_name = mothers_name
+    self.address = address
+  end
 end
