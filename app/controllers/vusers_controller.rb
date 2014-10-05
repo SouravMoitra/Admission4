@@ -1,4 +1,10 @@
 class VusersController < ApplicationController
+#***************************************************************************#
+#   Created by : Sourav Moitra                                              #
+#   email : astrosourav@gmail.com                                           #
+#   License : The MIT License (MIT)                                         #
+#   Date : October 5th 2014                                                 #
+#***************************************************************************#
   def index
     @users = User.paginate(:page => params[:page])
     begin

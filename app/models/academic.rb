@@ -1,4 +1,10 @@
 class Academic < ActiveRecord::Base
+  #***************************************************************************#
+  #   Created by : Sourav Moitra                                              #
+  #   email : astrosourav@gmail.com                                           #
+  #   License : The MIT License (MIT)                                         #
+  #   Date : October 5th 2014                                                 #
+  #***************************************************************************#
   belongs_to :user
   has_many :subject_entries
   accepts_nested_attributes_for :subject_entries

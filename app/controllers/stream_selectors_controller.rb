@@ -1,5 +1,10 @@
 class StreamSelectorsController < ApplicationController
-
+#***************************************************************************#
+#   Created by : Sourav Moitra                                              #
+#   email : astrosourav@gmail.com                                           #
+#   License : The MIT License (MIT)                                         #
+#   Date : October 5th 2014                                                 #
+#***************************************************************************#
 before_action :user_signin_status, only: [:new, :create]
 
   def new

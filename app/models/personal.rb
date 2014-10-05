@@ -1,4 +1,10 @@
 class Personal < ActiveRecord::Base
+  #***************************************************************************#
+  #   Created by : Sourav Moitra                                              #
+  #   email : astrosourav@gmail.com                                           #
+  #   License : The MIT License (MIT)                                         #
+  #   Date : October 5th 2014                                                 #
+  #***************************************************************************#
   belongs_to :user
 
   validates :first_name, presence: true, length: { maximum: 24}

@@ -1,4 +1,10 @@
 class StreamSelector < ActiveRecord::Base
+  #***************************************************************************#
+  #   Created by : Sourav Moitra                                              #
+  #   email : astrosourav@gmail.com                                           #
+  #   License : The MIT License (MIT)                                         #
+  #   Date : October 5th 2014                                                 #
+  #***************************************************************************#
   belongs_to :user
   validate :check_marks
   before_create :calculate_marks, :streams_marks

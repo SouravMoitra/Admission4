@@ -1,7 +1,12 @@
 class SubStrMapsController < ApplicationController
-
+#***************************************************************************#
+#   Created by : Sourav Moitra                                              #
+#   email : astrosourav@gmail.com                                           #
+#   License : The MIT License (MIT)                                         #
+#   Date : October 5th 2014                                                 #
+#***************************************************************************#
   before_action :admin_signin_status
-  
+
   def index
     @sub_str_maps = SubStrMap.all
   end

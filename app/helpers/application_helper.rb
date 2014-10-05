@@ -1,4 +1,10 @@
 module ApplicationHelper
+#***************************************************************************#
+#   Created by : Sourav Moitra                                              #
+#   email : astrosourav@gmail.com                                           #
+#   License : The MIT License (MIT)                                         #
+#   Date : October 5th 2014                                                 #
+#***************************************************************************#
   #Returns the full title on a per-page basis
   # @param [String, #read] the page title from the page
   # @return [String] The full title
