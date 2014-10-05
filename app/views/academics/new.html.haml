@@ -60,8 +60,8 @@
             = f.label "Subjects"
             = f.fields_for :subject_entries do |se|
               %p
-                = se.select(:subject_id, Subject.all.collect {|c| [c.name, c.id]}, {}, {:class => "form-control input-width-50", :required => true})
-                = se.number_field :marks, placeholder: "Marks", class: "form-control input-width-50", :required => true
+                = se.select(:subject_id, Subject.all.collect {|c| [c.name, c.id]}, {}, {:class => "form-control", :required => true})
+                = se.number_field :marks, placeholder: "Marks", class: "form-control", :required => true
 
 
           %p= f.submit "Submit", class: "btn btn-primary btn-lg", data: {confirm: "Are you sure information once submitted cant be modified ?"}
