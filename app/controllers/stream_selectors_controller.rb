@@ -5,8 +5,10 @@ class StreamSelectorsController < ApplicationController
 #   License : The MIT License (MIT)                                         #
 #   Date : October 5th 2014                                                 #
 #***************************************************************************#
-before_action :user_signin_status, only: [:new, :create]
-
+  before_action :user_signin_status, only: [:new, :create]
+  # intializes new StreamSelector
+  # checks if stream selector already filled up for user redirects back
+  # also checks if personal and academic infromation has been filled up
   def new
     unless current_user.academic && current_user.personal
       flash[:info] = "Fill up your academic information and personal information first"
@@ -19,7 +21,8 @@ before_action :user_signin_status, only: [:new, :create]
       @stream_selector = StreamSelector.new
     end
   end
-
+  
+  # creates new StreamSelector
   def create
     @stream_selector = StreamSelector.new(stream_selector_params)
     @stream_selector.user = current_user
@@ -33,8 +36,9 @@ before_action :user_signin_status, only: [:new, :create]
 
   private
 
-    def stream_selector_params
-      params.require(:stream_selector).permit(:calculated_marks, :stream_id)
-    end
+  # strong parameters
+  def stream_selector_params
+    params.require(:stream_selector).permit(:calculated_marks, :stream_id)
+  end
 
 end
