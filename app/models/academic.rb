@@ -25,6 +25,7 @@ class Academic < ActiveRecord::Base
 
   private
 
+  # strips down white spaces
   def strip_strings
     self.tenth_board = tenth_board
     self.twelfth_board = twelfth_board

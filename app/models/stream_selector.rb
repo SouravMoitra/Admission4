@@ -10,6 +10,7 @@ class StreamSelector < ActiveRecord::Base
   before_create :calculate_marks, :streams_marks
 
 
+  # checks if the user has required marks for selecting the stream
   def check_marks
     stream = Stream.find(stream_id)
     sub_maps = stream.sub_str_maps.all
@@ -39,6 +40,7 @@ class StreamSelector < ActiveRecord::Base
     ok
   end
 
+  # calculates the calculated marks field
   def calculate_marks
     stream = Stream.find(stream_id)
     sub_maps = stream.sub_str_maps.all
@@ -60,6 +62,7 @@ class StreamSelector < ActiveRecord::Base
     self.calculated_marks = total*10000 + tenth_mark
   end
 
+  # checks the user has required 12th marks
   def streams_marks
     xuser = self.user
     xcategory = xuser.personal.category

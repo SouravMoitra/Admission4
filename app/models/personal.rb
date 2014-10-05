@@ -20,7 +20,8 @@ class Personal < ActiveRecord::Base
   before_validation :strip_strings
 
   private
-
+  
+  # strips down white spaces
   def strip_strings
     self.first_name = first_name
     self.last_name = last_name
