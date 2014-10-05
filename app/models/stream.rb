@@ -18,6 +18,7 @@ class Stream < ActiveRecord::Base
 
   private
 
+  # strips down white spaces
   def strip_strings
     self.name = name.strip
   end

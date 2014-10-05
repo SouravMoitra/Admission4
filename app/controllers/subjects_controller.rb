@@ -7,14 +7,17 @@ class SubjectsController < ApplicationController
 #***************************************************************************#
   before_action :admin_signin_status
 
+  # lists all subject
   def index
     @subjects = Subject.all
   end
 
+  # intializes new subject
   def new
     @subject = Subject.new
   end
 
+  # creates new Subject
   def create
     @subject = Subject.new(subjects_params)
     if @subject.save
@@ -25,10 +28,12 @@ class SubjectsController < ApplicationController
     end
   end
 
+  # edits subjects
   def edit
     @subject = Subject.find(params[:id])
   end
 
+  # updates subject
   def update
     @subject = Subject.find(params[:id])
     if @subject.update(subjects_params)
@@ -39,6 +44,7 @@ class SubjectsController < ApplicationController
     end
   end
 
+  # destroys subject
   def destroy
     @subject = Subject.find(params[:id])
     @subject.destroy
@@ -46,11 +52,9 @@ class SubjectsController < ApplicationController
     redirect_to subjects_path
   end
 
-  def show
-  end
-
   private
 
+  # strong parameters
   def subjects_params
     params.require(:subject).permit(:name)
   end

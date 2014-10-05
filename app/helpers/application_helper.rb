@@ -28,11 +28,13 @@ module ApplicationHelper
   def current_user_level
     current_user.level
   end
-  # if the level is set to 5 the user is admin
+  # if the level is set to 1 the user is admin
+  # returns 1
   def admin_level
     1
   end
-  # if the level is set to 6 the user is verifier
+  # if the level is set to 2 the user is verifier
+  # returns 1
   def verifier_level
     2
   end
@@ -51,7 +53,8 @@ module ApplicationHelper
   # to determine the user is signed in if not sends back to root
   def user_signin_status
     unless user_signed_in?
-      redirect_to root_url
+      flash[:danger] = "you need to register yourself or sign in"
+      redirect_to sign_in_path
     end
   end
 end

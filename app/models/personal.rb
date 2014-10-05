@@ -21,13 +21,14 @@ class Personal < ActiveRecord::Base
 
   private
 
+  # strips down white spaces
   def strip_strings
-    self.first_name = first_name
-    self.last_name = last_name
-    self.gender = gender
-    self.category = category
-    self.fathers_name = fathers_name
-    self.mothers_name = mothers_name
-    self.address = address
+    self.first_name = first_name.strip
+    self.last_name = last_name.strip
+    self.gender = gender.strip
+    self.category = category.strip
+    self.fathers_name = fathers_name.strip
+    self.mothers_name = mothers_name.strip
+    self.address = address.strip
   end
 end

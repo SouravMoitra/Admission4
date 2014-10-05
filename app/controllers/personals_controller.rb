@@ -7,6 +7,8 @@ class PersonalsController < ApplicationController
 #***************************************************************************#
 before_action :user_signin_status, only: [:new, :create]
 
+  # intializes personal
+  # redirects back if personal information already created
   def new
     if current_user.personal
       flash[:danger] = "Personal information already filled up"
@@ -16,6 +18,7 @@ before_action :user_signin_status, only: [:new, :create]
     end
   end
 
+  # creates personal inforamtion
   def create
     @personal = Personal.new(personal_params)
     @personal.user = current_user
@@ -29,7 +32,8 @@ before_action :user_signin_status, only: [:new, :create]
 
   private
 
-    def personal_params
-      params.require(:personal).permit(:category, :date_of_birth, :fathers_name, :mothers_name, :address, :first_name, :last_name, :mobile_no, :gender)
-    end
+  # strong parameters  
+  def personal_params
+    params.require(:personal).permit(:category, :date_of_birth, :fathers_name, :mothers_name, :address, :first_name, :last_name, :mobile_no, :gender)
+  end
 end
