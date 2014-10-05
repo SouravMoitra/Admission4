@@ -5,6 +5,11 @@ class VusersController < ApplicationController
 #   License : The MIT License (MIT)                                         #
 #   Date : October 5th 2014                                                 #
 #***************************************************************************#
+
+  # renders verifiers view
+  # also renderslist of users and paginate them using will_paginate gem
+  # searches users using get method
+  # confirms user registration using get method 
   def index
     @users = User.paginate(:page => params[:page])
     begin

@@ -28,11 +28,13 @@ module ApplicationHelper
   def current_user_level
     current_user.level
   end
-  # if the level is set to 5 the user is admin
+  # if the level is set to 1 the user is admin
+  # returns 1
   def admin_level
     1
   end
-  # if the level is set to 6 the user is verifier
+  # if the level is set to 2 the user is verifier
+  # returns 1
   def verifier_level
     2
   end
