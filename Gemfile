@@ -46,7 +46,6 @@ gem 'autoprefixer-rails'
 gem 'will_paginate'
 
 group :production do
-  gem 'rails_12factor'
   gem 'pg'
 end
 
