@@ -31,4 +31,10 @@ class Academic < ActiveRecord::Base
     self.twelfth_board = twelfth_board.strip
     self.twelfth_stream = twelfth_stream.strip
   end
+
+  def check_tenth_twelfth
+    if tenth_year > twelfth_year
+	errors.add('twelfth_year', "Twelfth year of passing cannot be less than tenth year")
+    end
+  end
 end
