@@ -20,14 +20,19 @@ before_action :user_signin_status, only: [:new, :create]
 
   # creates personal inforamtion
   def create
-    @personal = Personal.new(personal_params)
-    @personal.user = current_user
-    if @personal.save
-      flash[:notice] = "Successfully created your personal infromation"
+		if current_user.personal
+      flash[:danger] = "Personal information already filled up"
       redirect_to root_path
-    else
-      render 'new'
-    end
+		else
+			@personal = Personal.new(personal_params)
+			@personal.user = current_user
+			if @personal.save
+				flash[:notice] = "Successfully created your personal infromation"
+				redirect_to root_path
+			else
+				render 'new'
+			end
+		end
   end
 
   private

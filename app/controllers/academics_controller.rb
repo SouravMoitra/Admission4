@@ -22,21 +22,26 @@ end
 
 # creates new academic and and associates subject_entries
 def create
-  @academic = Academic.new(academics_params)
-  @academic.user = current_user
-  begin
-    if @academic.save
-      flash[:notice] = "Successfully created your academic infromation"
-      redirect_to root_path
-    else
-      render 'new'
-    end
-  # this check if Record if there are any repeatation in subjects
-  # this is nasty must be replaced
-  rescue ActiveRecord::RecordNotUnique
-    flash[:danger] = "Two or more same subjects selected"
-    render 'new'
-  end
+	if current_user.academic
+    flash[:danger] = "Personal information already filled up"
+    redirect_to root_path
+  else
+		@academic = Academic.new(academics_params)
+		@academic.user = current_user
+		begin
+			if @academic.save
+				flash[:notice] = "Successfully created your academic infromation"
+				redirect_to root_path
+			else
+				render 'new'
+			end
+		# this check if Record if there are any repeatation in subjects
+		# this is nasty must be replaced
+		rescue ActiveRecord::RecordNotUnique
+			flash[:danger] = "Two or more same subjects selected"
+			render 'new'
+		end
+	end
 end
 
 private

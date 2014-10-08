@@ -24,14 +24,19 @@ class StreamSelectorsController < ApplicationController
   
   # creates new StreamSelector
   def create
-    @stream_selector = StreamSelector.new(stream_selector_params)
-    @stream_selector.user = current_user
-    if @stream_selector.save
-      flash[:notice] = "Successfully created your stream_selector infromation"
+		if current_user.stream_selector
+      flash[:danger] = "Stream already selected"
       redirect_to root_path
-    else
-      render 'new'
-    end
+		else
+			@stream_selector = StreamSelector.new(stream_selector_params)
+			@stream_selector.user = current_user
+			if @stream_selector.save
+				flash[:notice] = "Successfully created your stream_selector infromation"
+				redirect_to root_path
+			else
+				render 'new'
+			end
+		end
   end
 
   private
