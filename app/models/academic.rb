@@ -21,7 +21,7 @@ class Academic < ActiveRecord::Base
   validates :twelfth_rollno, presence: true
   validates :twelfth_stream, presence: true
 
-  before_validation :strip_strings
+  before_validation :strip_strings, :check_tenth_twelfth
 
   private
 
