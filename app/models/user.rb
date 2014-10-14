@@ -12,4 +12,5 @@ class User < ActiveRecord::Base
   has_one :personal
   has_one :academic
   has_one :stream_selector
+	has_one :address
 end

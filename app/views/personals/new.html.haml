@@ -47,9 +47,26 @@
           %p
             = f.label :category
             = f.select :category, options_for_select(%w[GEN SC ST OBC_A OBC_B]), class: "form-control dropdown", :required => true
-          %p
-            = f.label "Address"
-            = text_area :personal, :address, size: "2x2", class: "form-control", :required => true
+          %div
+            = f.fields_for :address do |add|
+              %p
+                = add.label "Adress Line 1"
+                = add.text_field :address_line1, class: "form-control", :required => true
+              %p
+                = add.label "Address Line 2"
+                = add.text_field :address_line2, class: "form-control", :required => true
+              %p
+                = add.label "City/town/village"
+                = add.text_field :town_vill, class: "form-control", :required => true
+              %p
+                = add.label "District"
+                = add.text_field :district, class: "form-control", :required => true
+              %p
+                = add.label "State"
+                = add.select :state, options_for_select(@personal.address.state_list),   class: "form-control", :required => true
+              %p
+                = add.label "Pincode"
+                = add.number_field :pin, class: "form-control", :required => true
           %p
             = f.label  "Mobile"
             = f.text_field :mobile_no,pattern: "[7-9]{1}[0-9]{9}", class: "form-control", :required => true

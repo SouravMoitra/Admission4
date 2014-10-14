@@ -6,7 +6,7 @@ class Personal < ActiveRecord::Base
   #   Date : October 5th 2014                                                 #
   #***************************************************************************#
   belongs_to :user
-
+  has_one :address
   validates :first_name, presence: true, length: { maximum: 24}
   validates :last_name, presence: true, length: { maximum: 24}
   validates :date_of_birth, presence: true
@@ -15,9 +15,9 @@ class Personal < ActiveRecord::Base
   validates :fathers_name, presence: true, length: { maximum: 50}
   validates :mothers_name, presence: true, length: { maximum: 50}
   validates :mobile_no, presence: true , :format => { :with => /[7-9]{1}[0-9]{9}/ }
-  validates :address, presence: true, length: { in: 10..100 }
-
+	accepts_nested_attributes_for :address
   before_validation :strip_strings
+	validates_associated :address
 
   private
 
@@ -29,6 +29,5 @@ class Personal < ActiveRecord::Base
     self.category = category.strip
     self.fathers_name = fathers_name.strip
     self.mothers_name = mothers_name.strip
-    self.address = address.strip
   end
 end

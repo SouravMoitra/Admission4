@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141003064451) do
+ActiveRecord::Schema.define(version: 20141014050635) do
 
   create_table "academics", force: true do |t|
     t.integer  "user_id",                                                null: false
@@ -28,6 +28,18 @@ ActiveRecord::Schema.define(version: 20141003064451) do
     t.datetime "updated_at"
   end
 
+  create_table "addresses", force: true do |t|
+    t.integer  "personal_id"
+    t.string   "address_line1", null: false
+    t.string   "address_line2"
+    t.string   "town_vill",     null: false
+    t.string   "district",      null: false
+    t.string   "state",         null: false
+    t.integer  "pin",           null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "personals", force: true do |t|
     t.integer  "user_id"
     t.string   "first_name",    default: "", null: false
@@ -37,7 +49,6 @@ ActiveRecord::Schema.define(version: 20141003064451) do
     t.string   "fathers_name",  default: "", null: false
     t.string   "gender",                     null: false
     t.string   "category",      default: "", null: false
-    t.string   "address",                    null: false
     t.string   "mobile_no",                  null: false
     t.datetime "created_at"
     t.datetime "updated_at"

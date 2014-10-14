@@ -53,13 +53,31 @@
                 %td
                   = @user.personal.category
               %tr
-                %td.info Address
-                %td
-                  = @user.personal.address
-              %tr
                 %td.info Mobile
                 %td
                   = @user.personal.mobile_no
+              - if @user.personal.try(:address)
+
+                %tr 
+                  %td.info Address Line 1
+                  %td
+                    = @user.personal.address.address_line1
+                %tr
+                  %td.info Address Line 2
+                  %td
+                    = @user.personal.address.address_line2
+                %tr
+                  %td.info District
+                  %td
+                    = @user.personal.address.district
+                %tr
+                  %td.info State
+                  %td
+                    = @user.personal.address.state
+                %tr
+                  %td.info Pin
+                  %td
+                    = @user.personal.address.pin
 .col-md-6
   .panel.panel-info
     .panel-heading

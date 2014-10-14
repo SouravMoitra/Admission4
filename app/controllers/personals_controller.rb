@@ -5,7 +5,8 @@ class PersonalsController < ApplicationController
 #   License : The MIT License (MIT)                                         #
 #   Date : October 5th 2014                                                 #
 #***************************************************************************#
-before_action :user_signin_status, only: [:new, :create]
+
+  before_action :user_signin_status, only: [:new, :create]
 
   # intializes personal
   # redirects back if personal information already created
@@ -15,6 +16,7 @@ before_action :user_signin_status, only: [:new, :create]
       redirect_to root_path
     else
       @personal = Personal.new
+			@personal.build_address
     end
   end
 
@@ -39,6 +41,6 @@ before_action :user_signin_status, only: [:new, :create]
 
   # strong parameters  
   def personal_params
-    params.require(:personal).permit(:category, :date_of_birth, :fathers_name, :mothers_name, :address, :first_name, :last_name, :mobile_no, :gender)
+    params.require(:personal).permit(:category, :date_of_birth, :fathers_name, :mothers_name, :address, :first_name, :last_name, :mobile_no, :gender, address_attributes: [:id, :address_line1, :address_line2, :town_vill, :district, :state, :pin])
   end
 end
