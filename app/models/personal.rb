@@ -6,7 +6,7 @@ class Personal < ActiveRecord::Base
   #   Date : October 5th 2014                                                 #
   #***************************************************************************#
   belongs_to :user
-  has_one :address
+  has_one :address, dependent: :destroy
   validates :first_name, presence: true, length: { maximum: 24}
   validates :last_name, presence: true, length: { maximum: 24}
   validates :date_of_birth, presence: true

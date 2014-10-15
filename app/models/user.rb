@@ -9,8 +9,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_one :personal
-  has_one :academic
-  has_one :stream_selector
-	has_one :address
+  has_one :personal, dependent: :destroy
+  has_one :academic, dependent: :destroy
+  has_one :stream_selector, dependent: :destroy
 end

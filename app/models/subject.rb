@@ -5,7 +5,7 @@ class Subject < ActiveRecord::Base
   #   License : The MIT License (MIT)                                         #
   #   Date : October 5th 2014                                                 #
   #***************************************************************************#
-  has_many :sub_str_maps
+  has_many :sub_str_maps, dependent: :destroy
   validates :name, presence: true, length: { in: 4..20 }
 
   before_validation :strip_strings

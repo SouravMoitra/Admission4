@@ -6,7 +6,7 @@ class Academic < ActiveRecord::Base
   #   Date : October 5th 2014                                                 #
   #***************************************************************************#
   belongs_to :user
-  has_many :subject_entries
+  has_many :subject_entries, dependent: :destroy
   accepts_nested_attributes_for :subject_entries
   validates_associated :subject_entries
 
