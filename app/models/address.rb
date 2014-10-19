@@ -11,42 +11,42 @@ class Address < ActiveRecord::Base
 
 	def state_list
 		%w(
-		  Andra_Pradesh
-			Arunachal Pradesh
-			Assam
-			Bihar
-			Chhattisgarh
-			Goa
-			Gujarat
-			Haryana
-			Himachal_Pradesh
-			Jammu_and_Kashmir
-			Jharkhand
-			Karnataka
-			Kerala
-			Madya_Pradesh
-			Maharashtra
-			Manipur
-			Meghalaya
-			Mizoram
-			Nagaland
-			Orissa
-			Punjab
-			Rajasthan
-			Sikkim
-			Tamil Nadu
-			Telangan
-			Tripura
-			Uttaranchal
-			Uttar_Pradesh
-			West_Bengal
-			Andaman_and_Nicobar_Islands
-			Chandigarh
-			Dadar_and_Nagar_Haveli
-			Daman_and_Diu
-			Delhi
-			Lakshadeep
-			Pondicherry
+		Andra_Pradesh
+		Arunachal Pradesh
+		Assam
+		Bihar
+		Chhattisgarh
+		Goa
+		Gujarat
+		Haryana
+		Himachal_Pradesh
+		Jammu_and_Kashmir
+		Jharkhand
+		Karnataka
+		Kerala
+		Madya_Pradesh
+		Maharashtra
+		Manipur
+		Meghalaya
+		Mizoram
+		Nagaland
+		Orissa
+		Punjab
+		Rajasthan
+		Sikkim
+		Tamil Nadu
+		Telangan
+		Tripura
+		Uttaranchal
+		Uttar_Pradesh
+		West_Bengal
+		Andaman_and_Nicobar_Islands
+		Chandigarh
+		Dadar_and_Nagar_Haveli
+		Daman_and_Diu
+		Delhi
+		Lakshadeep
+		Pondicherry
 		)
 	end
 
