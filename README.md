@@ -1,5 +1,7 @@
 # Admission 4
 
+[![Code Climate](https://codeclimate.com/github/SouravMoitra/Admission4/badges/gpa.svg)](https://codeclimate.com/github/SouravMoitra/Admission4)
+
 By [Sourav Moitra](https://facebook.com/sourav.moitra)
 
 ## License
