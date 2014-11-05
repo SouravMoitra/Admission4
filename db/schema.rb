@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141014050635) do
+ActiveRecord::Schema.define(version: 20141104161032) do
 
   create_table "academics", force: true do |t|
     t.integer  "user_id",                                                null: false
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20141014050635) do
     t.integer  "pin",           null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "country"
   end
 
   create_table "personals", force: true do |t|
@@ -52,6 +53,7 @@ ActiveRecord::Schema.define(version: 20141014050635) do
     t.string   "mobile_no",                  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "photo"
   end
 
   create_table "stream_selectors", force: true do |t|
@@ -102,6 +104,7 @@ ActiveRecord::Schema.define(version: 20141014050635) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "tstream",    default: "Others", null: false
   end
 
   create_table "users", force: true do |t|

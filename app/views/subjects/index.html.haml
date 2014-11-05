@@ -14,14 +14,16 @@
         %table.table
           %thead
             %tr
-              %td id
-              %td Subject
-              %td{colspan: 2} Actions
+              %th id
+              %th Subject
+              %th 12th Stream
+              %th{colspan: 2} Actions
           %tbody
             - @subjects.each do |subject|
               %tr
                 %td #{subject.id}
                 %td #{subject.name}
+                %td #{subject.tstream}
                 %td
                   = link_to :edit, edit_subject_path(subject), class: "btn btn-primary btn-sm"
                 %td

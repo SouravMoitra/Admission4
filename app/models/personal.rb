@@ -15,9 +15,12 @@ class Personal < ActiveRecord::Base
   validates :fathers_name, presence: true, length: { maximum: 50}
   validates :mothers_name, presence: true, length: { maximum: 50}
   validates :mobile_no, presence: true , :format => { :with => /[7-9]{1}[0-9]{9}/ }
+  validates :photo, presence: true
   accepts_nested_attributes_for :address
   before_validation :strip_strings
   validates_associated :address
+
+  mount_uploader :photo, PhotoUploader
 
   private
 

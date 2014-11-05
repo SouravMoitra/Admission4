@@ -7,7 +7,7 @@ class Academic < ActiveRecord::Base
   #***************************************************************************#
   belongs_to :user
   has_many :subject_entries, dependent: :destroy
-  accepts_nested_attributes_for :subject_entries
+  accepts_nested_attributes_for :subject_entries, allow_destroy: true, :reject_if => lambda { |a| a[:subject_id].blank? }
   validates_associated :subject_entries
 
 

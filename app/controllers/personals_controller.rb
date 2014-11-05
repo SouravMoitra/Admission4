@@ -37,10 +37,14 @@ class PersonalsController < ApplicationController
     end
   end
 
+  def subregion_options
+    render partial: 'subregion_select'
+  end
+
   private
 
   # strong parameters
   def personal_params
-    params.require(:personal).permit(:category, :date_of_birth, :fathers_name, :mothers_name, :address, :first_name, :last_name, :mobile_no, :gender, address_attributes: [:id, :address_line1, :address_line2, :town_vill, :district, :state, :pin])
+    params.require(:personal).permit(:category, :date_of_birth, :fathers_name, :photo, :mothers_name, :first_name, :last_name, :mobile_no, :gender, address_attributes: [:id, :address_line1, :address_line2, :town_vill, :district, :state, :pin, :country])
   end
 end

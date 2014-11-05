@@ -44,6 +44,12 @@ gem 'haml'
 gem 'haml-rails'
 gem 'autoprefixer-rails'
 gem 'will_paginate'
+gem 'carmen-rails'
+gem 'momentjs-rails'
+gem 'bootstrap3-datetimepicker-rails'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'activeadmin', github: 'activeadmin'
 
 group :production do
   gem 'rails_12factor'

@@ -56,7 +56,7 @@ class SubjectsController < ApplicationController
 
   # strong parameters
   def subjects_params
-    params.require(:subject).permit(:name)
+    params.require(:subject).permit(:name, :tstream)
   end
 
 end

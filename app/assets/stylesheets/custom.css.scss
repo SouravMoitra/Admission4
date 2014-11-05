@@ -1,5 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import 'bootstrap-datetimepicker';
+
 @import url(http://fonts.googleapis.com/css?family=Droid+Sans);
 $greenish-color: #B9F0CC;
 $def-border-radius: 5px;
@@ -145,4 +147,17 @@ thead {
   }
   max-height: 200px;
   overflow: hidden;
+}
+
+.input-group-addon {
+  height: 15px;
+}
+
+.modifieddropdown {
+  .userphoto {
+    float: left;
+    border-radius: 50%;
+    border: 3px solid #0F5E06;
+    margin-top: -14px;
+  }
 }

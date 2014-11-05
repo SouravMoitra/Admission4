@@ -22,15 +22,14 @@
         %li
           %a{:href => "/about"} About
           - if user_signed_in?
-            %li.dropdown
+            %li.dropdown.modifieddropdown
               %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-                %span{class: "glyphicon glyphicon-user"}
-                %span.caret
+                - if user_signed_in? && current_user.personal && !current_user.personal.photo.blank?
+                  = image_tag(current_user.personal.photo_url(:thumb), width: "50", height: "50", alt: "user pic" , class: "userphoto")
+                - else
+                  %span{class: "glyphicon glyphicon-user"}
+                  %span.caret
               %ul.dropdown-menu{:role => "menu"}
-                %li
-                  %a{:href => "#"} Action
-                %li
-                  %a{:href => "#"} Another action
                 %li
                   =link_to "Edit password", edit_user_registration_path
                 %li.divider

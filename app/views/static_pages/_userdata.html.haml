@@ -4,6 +4,7 @@
 -#   License : The MIT License (MIT)                                         #
 -#   Date : October 5th 2014                                                 #
 -#***************************************************************************#
+
 .col-md-6
   .panel.panel-info
     .panel-heading
@@ -58,7 +59,7 @@
                   = @user.personal.mobile_no
               - if @user.personal.try(:address)
 
-                %tr 
+                %tr
                   %td.info Address Line 1
                   %td
                     = @user.personal.address.address_line1
@@ -75,15 +76,19 @@
                   %td
                     = @user.personal.address.state
                 %tr
+                  %td.info Country
+                  %td
+                    = @user.personal.address.country
+                %tr
                   %td.info Pin
                   %td
                     = @user.personal.address.pin
 .col-md-6
-  .panel.panel-info
-    .panel-heading
-      Academic Details
-    .panel-body
-      - if @user && @user.try(:academic)
+  - if @user && @user.try(:academic)
+    .panel.panel-info
+      .panel-heading
+        Academic Details
+      .panel-body
         .table-responsive
           %table.table.table-hover
             %tr

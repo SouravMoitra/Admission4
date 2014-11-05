@@ -159,7 +159,7 @@ SubStrMap.create(stream_id: 10, subject_id: 6, GEN: 70, SC: 59, ST: 58, OBC_A: 5
 
 
 
-Personal.create(user_id: 5, first_name: "test", last_name: "test", category: "GEN", date_of_birth: "1994-12-3", mothers_name: "test ch", fathers_name: "test sp", gender: "M", address: "test ch ch", mobile_no: "9163427056")
+Personal.create(user_id: 5, first_name: "test", last_name: "test", category: "GEN", date_of_birth: "1994-12-3", mothers_name: "test ch", fathers_name: "test sp", gender: "M", mobile_no: "9163427056")
 Personal.create(user_id: 6, first_name: "test", last_name: "test", category: "GEN",date_of_birth: "1994-12-3", mothers_name: "test ch", fathers_name: "test sp", gender: "M", address: "test ch ch", mobile_no: "9163427056")
 Personal.create(user_id: 7, first_name: "test", last_name: "test", category: "GEN",date_of_birth: "1994-12-3", mothers_name: "test ch", fathers_name: "test sp", gender: "M", address: "test ch ch", mobile_no: "9163427056")
 Personal.create(user_id: 8, first_name: "test", last_name: "test", category: "GEN",date_of_birth: "1994-12-3", mothers_name: "test ch", fathers_name: "test sp", gender: "M", address: "test ch ch", mobile_no: "9163427056")

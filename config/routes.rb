@@ -26,4 +26,6 @@ Rails.application.routes.draw do
     get "sign_up", to: "devise/registrations#new"
     delete "sign_out", to: "devise/sessions#destroy"
   end
+  get '/personals/subregion_options' => 'personals#subregion_options'
+  post '/academics/returnsubs' => 'academics#returnsubs'
 end

@@ -13,7 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require turbolinks
+//= require moment
+//= require bootstrap-datetimepicker
 //= require_tree .
 
 
@@ -21,4 +22,31 @@
 $(function(){
   $(".alert").alert();
   $('#carousel-example-generic').carousel();
+  $(".alert").fadeOut(5000);
+  $('select#select-stream').change(function(){
+    alert("test");
+    subject = $(this).val();
+    var request = $.ajax({
+      url: "/academics/returnsubs",
+      type: "POST",
+      data: { subject: subject },
+      dataType: "html"
+    });
+    request.done(function(response){
+      formsubjects = $(response).find("#subject-entries")
+      $("#sub-entry").html(formsubjects);
+    });
+  });
+  $('#date_of_birth').datetimepicker({
+     format: 'DD/MM/YYYY',
+		pickTime: false
+	});
+  return $('select#order_country_code').change(function(event) {
+    var country_code, select_wrapper, url;
+    select_wrapper = $('#order_state_code_wrapper');
+    $('select', select_wrapper).attr('disabled', true);
+    country_code = $(this).val();
+    url = "/personals/subregion_options?parent_region=" + country_code;
+    return select_wrapper.load(url);
+  });
 });

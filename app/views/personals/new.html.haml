@@ -19,9 +19,10 @@
                 prohibited this candidate from being saved:
               %ul
                 - @personal.errors.full_messages.each do |message|
-                  %li= message
+                  %li
+                    = message
           %p
-            = f.label :first_name
+            = f.label :first_name, "First Name"
             %br/
             = f.text_field :first_name, class: "form-control", :required => true
           %p
@@ -29,13 +30,18 @@
             %br/
             = f.text_field :last_name, class: "form-control", :required => true
           %p
-            = f.label :gender
+            = f.label :photo
             %br/
-            = f.select :gender, options_for_select(%w[M F O]), class: "form-control dropdown", :required => true
+            = f.file_field :photo, class: "form-control", :required => true
+          %p
+            = f.label :gender, "Male"
+            = f.radio_button :gender, "M", :required => true
+            = f.label :gender, "Female"
+            = f.radio_button :gender, "F", :required => true
           %p
             = f.label :date_of_birth, "Date of Birth"
             %br/
-            = f.date_select :date_of_birth, start_year: 1985, end_year: 1999, class: "form-control dropdown", :required => true
+            = f.text_field :date_of_birth, class: "form-control", id: "date_of_birth", required: true, data: { "date-format" => "DD-MM-YYYY" }
           %p
             = f.label :fathers_name
             %br/
@@ -47,7 +53,7 @@
           %p
             = f.label :category
             = f.select :category, options_for_select(%w[GEN SC ST OBC_A OBC_B]), class: "form-control dropdown", :required => true
-          %div
+          %p
             = f.fields_for :address do |add|
               %p
                 = add.label "Adress Line 1"
@@ -62,8 +68,11 @@
                 = add.label "District"
                 = add.text_field :district, class: "form-control", :required => true
               %p
+                = add.label "Country"
+                = add.country_select :country, {priority: %w(IN), prompt: "Select your country"},  { class: "form-control",id: "order_country_code", required: true }
+              %p
                 = add.label "State"
-                = add.select :state, options_for_select(@personal.address.state_list),   class: "form-control", :required => true
+                = render partial: 'subregion_select', locals: {parent_region: add.object.country}
               %p
                 = add.label "Pincode"
                 = add.number_field :pin, class: "form-control", :required => true

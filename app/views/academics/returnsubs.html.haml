@@ -1,0 +1,8 @@
+- subs = Subject.find_by_sql("SELECT `subjects`.* FROM `subjects` WHERE `subjects`.`tstream` = '#{@subject}' OR `subjects`.`tstream` = 'Others'")
+= form_for @academic, role: "form" do |f|
+  #subject-entries
+    = f.fields_for :subject_entries do |se|
+      %p
+        = se.select(:subject_id, subs.collect {|c| [c.name, c.id]}, {prompt: 'Select Subject'}, {:class => "form-control"})
+      %p
+        = se.number_field :marks, placeholder: "Marks", class: "form-control"

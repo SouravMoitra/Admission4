@@ -24,4 +24,8 @@
             %br/
             = f.text_field :name, class: "form-control", :required => true
           %p
+            = f.label "12th Streams"
+            %br/
+            = f.select :tstream,options_for_select(%w[Arts Commerce Science Others]), {}, {class: "form-control", :required => true}
+          %p
             = f.submit
