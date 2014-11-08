@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'about'   => 'static_pages#about'
   get 'contact' => 'static_pages#contact'
   get 'print'   => 'static_pages#print'
+  get 'streams' => 'streams#index'
   get '/verify' => 'vusers#index'
   get '/search' => 'vusers#search'
   post '/verify/doverify' => 'vusers#doverify'

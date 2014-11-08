@@ -6,12 +6,16 @@ class StreamsController < ApplicationController
 #   Date : October 5th 2014                                                 #
 #***************************************************************************#
   def show
-    @stream = Stream.find(params[:id])
+    @stream = Stream.friendly.find(params[:id])
     @gens = process_result(@stream.id, "GEN")
     @scs = process_result(@stream.id, "SC")
     @sts = process_result(@stream.id, "ST")
     @obcas = process_result(@stream.id, "OBC_A")
     @obcbs = process_result(@stream.id, "OBC_B")
+  end
+
+  def index
+    @streams = Stream.all
   end
 
   private

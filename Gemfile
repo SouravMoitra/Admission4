@@ -50,6 +50,7 @@ gem 'bootstrap3-datetimepicker-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'activeadmin', github: 'activeadmin'
+gem 'friendly_id'
 
 group :production do
   gem 'rails_12factor'

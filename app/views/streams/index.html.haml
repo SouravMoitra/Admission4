@@ -1,0 +1,50 @@
+-#***************************************************************************#
+-#   Created by : Sourav Moitra                                              #
+-#   email : astrosourav@gmail.com                                           #
+-#   License : The MIT License (MIT)                                         #
+-#   Date : October 5th 2014                                                 #
+-#***************************************************************************#
+.row
+  .col-md-10.col-md-offset-1.col-sm-10.col-sm-offset-1.col-xs-12.col-xs-offset-0
+    .panel.panel-success
+      .panel-heading
+        All Streams
+      .panel-body
+        %table.table.table-bordered
+          %thead
+            %tr
+              %td{rowspan: "2"} Stream
+              %td{rowspan: "2"}
+              %td{colspan: "5"} Cuttoffs
+            %tr
+              %td Gen
+              %td SC
+              %td ST
+              %td OBC-A
+              %td OBC-B
+          %tbody
+            - @streams.each do |stream|
+              %tr.info
+                %td
+                  =link_to stream.name, stream_path(stream)
+                %td Overall marks in Twelfth
+                %td #{stream.GEN}
+                %td #{stream.SC}
+                %td #{stream.ST}
+                %td #{stream.OBC_A}
+                %td #{stream.OBC_B}
+              - stream.sub_str_maps.each do |ss|
+                %tr.active
+                  %td Subjectwise marks
+                  %td
+                    = ss.subject.name
+                  %td
+                    = ss.GEN
+                  %td
+                    = ss.SC
+                  %td
+                    = ss.ST
+                  %td
+                    = ss.OBC_A
+                  %td
+                    = ss.OBC_B

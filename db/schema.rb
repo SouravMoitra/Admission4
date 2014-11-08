@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141106123107) do
+ActiveRecord::Schema.define(version: 20141108114226) do
 
   create_table "academics", force: true do |t|
     t.integer  "user_id",                                                null: false
@@ -107,7 +107,10 @@ ActiveRecord::Schema.define(version: 20141106123107) do
     t.integer  "OBC_B"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
+
+  add_index "streams", ["slug"], name: "index_streams_on_slug", using: :btree
 
   create_table "sub_str_maps", force: true do |t|
     t.integer  "stream_id"
