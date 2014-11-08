@@ -128,7 +128,7 @@ Subject.create(name: "Environmental", tstream: "others")
 Subject.create(name: "Sports", tstream: "others")
 Subject.create(name: "Computer science", tstream: "Science")
 Subject.create(name: "Economics", tstream: "Commerce")
-Subject.create(name: "Statistics", tstream: "Sciencee")
+Subject.create(name: "Statistics", tstream: "Science")
 Subject.create(name: "Buisness study", tstream: "Commerce")
 
 
