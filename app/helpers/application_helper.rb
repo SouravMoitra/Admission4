@@ -30,7 +30,7 @@ module ApplicationHelper
   # to determine the user is signed in if not sends back to root
   def user_signin_status
     unless user_signed_in?
-      flash[:danger] = "you need to register yourself or sign in"
+      flash[:danger] = "You need to register yourself or sign in"
       redirect_to sign_in_path
     end
   end
