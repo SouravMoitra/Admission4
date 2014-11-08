@@ -52,6 +52,7 @@ gem 'mini_magick'
 gem 'activeadmin', github: 'activeadmin'
 gem 'friendly_id'
 gem 'foreigner'
+ gem 'unicorn'
 
 group :production do
   gem 'rails_12factor'
