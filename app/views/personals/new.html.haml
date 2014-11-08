@@ -11,7 +11,7 @@
       .panel-heading
         Fill up your personal Details
       .panel-body
-        = form_for @personal, role: "form" do |f|
+        = form_for @personal, role: "form", data: {confirm: "Are you sure information once submitted cant be modified ?"} do |f|
           - if @personal.errors.any?
             #error_explanation
               %h2
@@ -21,62 +21,64 @@
                 - @personal.errors.full_messages.each do |message|
                   %li
                     = message
+          %p.form-declaration
+            Fields marked with asterisk must be filled
           %p
-            = f.label :first_name, "First Name"
+            = f.label :first_name, "First Name *"
             %br/
             = f.text_field :first_name, class: "form-control", :required => true
           %p
-            = f.label :last_name
+            = f.label :last_name, "Last Name *"
             %br/
             = f.text_field :last_name, class: "form-control", :required => true
           %p
-            = f.label :photo
+            = f.label :photo, "Photo *"
             %br/
             = f.file_field :photo, class: "form-control", :required => true
           %p
-            = f.label :gender, "Male"
+            = f.label :gender, "Male *"
             = f.radio_button :gender, "M", :required => true
-            = f.label :gender, "Female"
+            = f.label :gender, "Female *"
             = f.radio_button :gender, "F", :required => true
           %p
-            = f.label :date_of_birth, "Date of Birth"
+            = f.label :date_of_birth, "Date of Birth *"
             %br/
             = f.text_field :date_of_birth, class: "form-control", id: "date_of_birth", required: true, data: { "date-format" => "DD-MM-YYYY" }
           %p
-            = f.label :fathers_name
+            = f.label :fathers_name, "Father's Name *"
             %br/
             = f.text_field :fathers_name, class: "form-control", :required => true
           %p
-            = f.label :mothers_name
+            = f.label :mothers_name, "Mother's Name"
             %br/
             = f.text_field :mothers_name, class: "form-control", :required => true
           %p
-            = f.label :category
-            = f.select :category, options_for_select(%w[GEN SC ST OBC_A OBC_B]), class: "form-control dropdown", :required => true
+            = f.label :category, "Category *"
+            = f.select :category, options_for_select(%w[GEN SC ST OBC_A OBC_B]), {},   {class: "form-control dropdown", :required => true}
           %p
             = f.fields_for :address do |add|
               %p
-                = add.label "Adress Line 1"
+                = add.label :address_line1, "Adress Line 1 *"
                 = add.text_field :address_line1, class: "form-control", :required => true
               %p
-                = add.label "Address Line 2"
+                = add.label :address_line2, "Address Line 2 *"
                 = add.text_field :address_line2, class: "form-control", :required => true
               %p
-                = add.label "City/town/village"
+                = add.label :town_vill, "City/town/village *"
                 = add.text_field :town_vill, class: "form-control", :required => true
               %p
-                = add.label "District"
+                = add.label :district, "District *"
                 = add.text_field :district, class: "form-control", :required => true
               %p
-                = add.label "Country"
+                = add.label :country, "Country *"
                 = add.country_select :country, {priority: %w(IN), prompt: "Select your country"},  { class: "form-control",id: "order_country_code", required: true }
               %p
-                = add.label "State"
+                = add.label :state, "State *"
                 = render partial: 'subregion_select', locals: {parent_region: add.object.country}
               %p
-                = add.label "Pincode"
+                = add.label :pin,  "Pincode *"
                 = add.number_field :pin, class: "form-control", :required => true
           %p
-            = f.label  "Mobile"
+            = f.label :mobile_no,  "Mobile *"
             = f.text_field :mobile_no,pattern: "[7-9]{1}[0-9]{9}", class: "form-control", :required => true
-          %p= f.submit "Submit", class: "btn btn-primary btn-lg", data: {confirm: "Are you sure information once submitted cant be modified ?"}
+          %p= f.submit "Submit", class: "btn btn-primary btn-lg"

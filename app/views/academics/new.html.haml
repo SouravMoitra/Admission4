@@ -11,7 +11,7 @@
       .panel-heading
         Fill up your academic Details
       .panel-body
-        = form_for @academic, role: "form" do |f|
+        = form_for @academic, role: "form", data: {confirm: "Are you sure information once submitted cant be modified ?"} do |f|
           - if @academic.errors.any?
             #error_explanation
               %h2
@@ -20,45 +20,58 @@
               %ul
                 - @academic.errors.full_messages.each do |message|
                   %li= message
-          %p
-            = f.label "10th Marks %"
-            %br/
-            = f.text_field :tenth_marks, class: "form-control", :required => true
-          %p
-            = f.label "10th Registration Number"
-            %br/
-            = f.number_field :tenth_rollno, class: "form-control", :required => true
-          %p
-            = f.label "10th year of passing"
-            %br/
-            = f.number_field :tenth_year, class: "form-control", :required => true
-          %p
-            = f.label "10th board"
-            %br/
-            = f.text_field :tenth_board, class: "form-control", :required => true
-          %p
-            = f.label "12th Marks %"
-            %br/
-            = f.text_field :twelfth_marks, class: "form-control", :required => true
-          %p
-            = f.label "12th Registration number"
-            %br/
-            = f.number_field :twelfth_rollno, class: "form-control", :required => true
-          %p
-            = f.label "12th year of passing"
-            %br/
-            = f.number_field :twelfth_year, class: "form-control", :required => true
-          %p
-            = f.label "12th board"
-            %br/
-            = f.text_field :twelfth_board, class: "form-control", :required => true
-          %p
-            = f.label "12th Streams"
-            %br/
-            = f.select :twelfth_stream, options_for_select(%w[Arts Commerce Science Others]), {}, {class: "form-control", :required => true, id: "select-stream"}
-          %div
-            = f.label "Subjects"
-            #sub-entry
-              %h5
-                Select your stream
-          %p= f.submit "Submit", class: "btn btn-primary btn-lg", data: {confirm: "Are you sure information once submitted cant be modified ?"}
+          %p.form-declaration
+            Fields marked with star must be filled
+          .tenth-details
+            %h3 Tenth Standard Details
+            %p.form-declaration As given in your 10th Mark sheet/Passing certificate
+            %p
+              = f.label :tenth_marks, "Marks % *"
+              %br/
+              = f.text_field :tenth_marks, class: "form-control", :required => true, value: ''
+            %p
+              = f.label :tenth_rollno, "Roll Number *"
+              %br/
+              = f.number_field :tenth_rollno, class: "form-control", :required => true
+            %p
+              = f.label :tenth_year, "Year of passing *"
+              %br/
+              = f.number_field :tenth_year, class: "form-control", :required => true
+            %p
+              = f.label :tenth_board, "Board *"
+              %br/
+              = f.text_field :tenth_board, class: "form-control", :required => true
+          .tenth-details
+            %h3 Twelfth Standard Details
+            %p.form-declaration As given in 12th Mark sheet/Passing certificate
+            %p
+              = f.label :twelfth_marks, "Marks % *"
+              %br/
+              = f.text_field :twelfth_marks, class: "form-control", :required => true, value: ''
+            %p
+              = f.label :twelfth_rollno, "Roll number *"
+              %br/
+              = f.number_field :twelfth_rollno, class: "form-control", :required => true
+            %p
+              = f.label "Year of passing *"
+              %br/
+              = f.number_field :twelfth_year, class: "form-control", :required => true
+            %p
+              = f.label :twelfth_board,  "Board *"
+              %br/
+              = f.text_field :twelfth_board, class: "form-control", :required => true
+          .tenth-details
+            %h3 Twelfth Standard Subject Details
+            %p.form-declaration As given in your 12th Mark sheet
+            %p
+              = f.label :twelfth_stream, "12th Streams *"
+              %br/
+              = f.select :twelfth_stream, options_for_select(%w[Arts Commerce Science Others]), {}, {class: "form-control", :required => true, id: "select-stream"}
+            %div
+              = f.label "12th Subjects *"
+              %p.form-declaration
+                Select the subjects given in your 12th marksheet and put their marks and leave the rest blank
+              #sub-entry
+                %h5
+                  Select your stream
+          %p= f.submit "Submit", class: "btn btn-primary btn-lg"

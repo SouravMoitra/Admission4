@@ -5,10 +5,13 @@
 -#   Date : October 5th 2014                                                 #
 -#***************************************************************************#
 - provide(:title, "Home")
-- if is_admin?
-  = render 'admin'
-- elsif  is_verifier?
-  = render 'verify'
+- if  is_verifier?
+  %h1
+    Verifiers Page
+
+  .row
+    .col-md-2.col-md-offset-5
+      = link_to "Verifer page", verify_path, class: "btn btn-primary btn-lg"
 - else
   = render 'user'
   = render 'userdata'

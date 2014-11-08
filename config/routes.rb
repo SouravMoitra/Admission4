@@ -10,10 +10,16 @@ Rails.application.routes.draw do
   get 'help'    => 'static_pages#help'
   get 'about'   => 'static_pages#about'
   get 'contact' => 'static_pages#contact'
+  get 'print'   => 'static_pages#print'
   get '/verify' => 'vusers#index'
+  get '/search' => 'vusers#search'
+  post '/verify/doverify' => 'vusers#doverify'
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
 
 
-  resources :streams
+  resources :streams, only: [:show]
   resources :subjects, except: [:show]
   resources :sub_str_maps, except: [:show]
   resources  :academics, only: [:new, :create]

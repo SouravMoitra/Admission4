@@ -15,16 +15,14 @@
 //= require bootstrap-sprockets
 //= require moment
 //= require bootstrap-datetimepicker
-//= require_tree .
 
 
 
 $(function(){
   $(".alert").alert();
   $('#carousel-example-generic').carousel();
-  $(".alert").fadeOut(5000);
+  $(".alert").fadeOut(10000);
   $('select#select-stream').change(function(){
-    alert("test");
     subject = $(this).val();
     var request = $.ajax({
       url: "/academics/returnsubs",
@@ -38,7 +36,6 @@ $(function(){
     });
   });
   $('#date_of_birth').datetimepicker({
-     format: 'DD/MM/YYYY',
 		pickTime: false
 	});
   return $('select#order_country_code').change(function(event) {

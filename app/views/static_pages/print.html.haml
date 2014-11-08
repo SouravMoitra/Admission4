@@ -1,0 +1,133 @@
+- content_for :cssHead do
+  = stylesheet_link_tag "print.css", media: "print"
+%h1#printh1
+  College Admission
+%table.personal.table-print
+  %tr
+    %td.warning{colspan: "2"} Personal Details
+  %tr
+    %td Photo
+    %td
+      = image_tag(current_user.personal.photo_url, width: "80", height: "80", alt: "Image")
+  %tr
+    %td.info Email
+    %td
+      = @user.email
+
+  - if @user.try(:personal)
+    %tr
+      %td.info First name
+      %td
+        = @user.personal.first_name
+    %tr
+      %td.info Last name
+      %td
+        = @user.personal.last_name
+    %tr
+      %td.info Date of Birth
+      %td
+        = @user.personal.date_of_birth
+    %tr
+      %td.info Mother's Name
+      %td
+        = @user.personal.mothers_name
+    %tr
+      %td.info Father's name
+      %td
+        = @user.personal.fathers_name
+    %tr
+      %td.info Gender
+      %td
+        = @user.personal.gender
+    %tr
+      %td.info Category
+      %td
+        = @user.personal.category
+    %tr
+      %td.info Mobile
+      %td
+        = @user.personal.mobile_no
+    - if @user.personal.try(:address)
+
+      %tr
+        %td.info Address Line 1
+        %td
+          = @user.personal.address.address_line1
+      %tr
+        %td.info Address Line 2
+        %td
+          = @user.personal.address.address_line2
+      %tr
+        %td.info District
+        %td
+          = @user.personal.address.district
+      %tr
+        %td.info State
+        %td
+          = @user.personal.address.state
+      %tr
+        %td.info Country
+        %td
+          = @user.personal.address.country
+      %tr
+        %td.info Pin
+        %td
+          = @user.personal.address.pin
+
+%table.academic.table-print
+  %tr
+    %td.warning{colspan: "2"} Academic Details
+  %tr
+    %td.info 10th Roll no.
+    %td
+      = @user.academic.tenth_rollno
+  %tr
+    %td.info 10th Marks
+    %td
+      = @user.academic.tenth_marks
+  %tr
+    %td.info 10th Board
+    %td
+      = @user.academic.tenth_board
+  %tr
+    %td.info 10th Year
+    %td
+      = @user.academic.tenth_year
+  %tr
+    %td.info 12th Roll no.
+    %td
+      = @user.academic.twelfth_rollno
+  %tr
+    %td.info 12th Marks
+    %td
+      = @user.academic.twelfth_marks
+  %tr
+    %td.info 12th Board
+    %td
+      = @user.academic.twelfth_board
+  %tr
+    %td.info 12th Year
+    %td
+      = @user.academic.twelfth_year
+  %tr
+    %td.info 12th Stream
+    %td
+      = @user.academic.twelfth_stream
+  - if @user.academic.try(:subject_entries)
+    %tr
+      %td.warning{colspan: "2"} 12th Subject Details
+    - @user.academic.subject_entries.each do |se|
+      %tr
+        %td.info
+          = Subject.find(se.subject_id).name
+        %td
+          = se.marks
+  %tr
+    %td Stream Applied For
+    %td
+      = Stream.find(@user.stream_selector.stream_id).name
+:javascript
+    $(document).ready( function() {
+      window.print();
+      window.close();
+    } );

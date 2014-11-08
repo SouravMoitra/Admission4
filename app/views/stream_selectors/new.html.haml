@@ -11,7 +11,7 @@
       .panel-heading
         Select your stream
       .panel-body
-        = form_for @stream_selector, role: "form" do |f|
+        = form_for @stream_selector, role: "form", data: {confirm: "Are you sure information once submitted cant be modified ?"} do |f|
           - if @stream_selector.errors.any?
             #error_explanation
               %h2
@@ -21,7 +21,7 @@
                 - @stream_selector.errors.full_messages.each do |message|
                   %li= message
           %p
-            = f.label "Choose your stream"
+            = f.label "Choose your stream *"
             %br/
             = f.select :stream_id, Stream.all.collect { |c| [c.name, c.id]}, {}, {class: "form-control", required: true}
-          %p= f.submit "Submit", class: "btn btn-primary btn-lg", data: {confirm: "Are you sure information once submitted cant be modified ?"}
+          %p= f.submit "Submit", class: "btn btn-primary btn-lg"

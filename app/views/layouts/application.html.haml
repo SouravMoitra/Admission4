@@ -10,12 +10,15 @@
     %meta{ name: "viewport", content: "width=device-width, initial-scale=1"}
     %meta{charset: "utf-8"}
     %title #{full_title(yield(:title))}
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = stylesheet_link_tag    'application', media: 'all'
+    = yield :cssHead
+    = javascript_include_tag 'application'
+    = yield :jsHead
     = csrf_meta_tags
     = render 'layouts/htmlshim'
   %body
-    = render 'layouts/navbar'
+    %header
+      = render 'layouts/navbar'
     = render 'layouts/flash'
     .body.container-fluid
       = yield

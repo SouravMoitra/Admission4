@@ -4,21 +4,29 @@
 -#   License : The MIT License (MIT)                                         #
 -#   Date : October 5th 2014                                                 #
 -#***************************************************************************#
+- content_for :jsHead do
+  = javascript_include_tag("search.js")
+
 %h1 Verfiers Page
 .container-fluid
   .row
     .col-md-12
-      .panel.panel-primary
+      .panel.panel-success
         .panel-heading
           Search
           %span{class: "glyphicon glyphicon-search"}
         .panel-body
-          %form{action: "/verify/", method: "get"}
-            %input{type: "text", id: "search", name: "search", class: "form-control input-width-50"}
-            %input{type: "submit", value: "Search", class: "btn btn-primary"}
-  .row
-    = render 'user'
+          .input-group
+            %input.form-control{:type => "text", id: "search-in"}/
+            .input-group-btn
+              %button.btn.btn-success{:tabindex => "-1", :type => "button", id: "search-btn"} Search
 
+  .row
+    .col-md-6
+      .panel.panel-danger
+        .panel-heading
+          Candidate Details
+        .panel-body#search-details
     .col-md-6
       .panel.panel-info
         .panel-heading

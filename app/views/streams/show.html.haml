@@ -8,13 +8,13 @@
       %table.table-hover.table-custom
         %tr
           %th Rank
-          %th ID
+          %th Email
         - @gens.each_with_index do |row, index|
           %tr
             %td
               = index + 1
             %td
-              = row[0]
+              = User.find(row[0]).email
 .panel.panel-info
   .panel-heading
     Schedule caste Result
@@ -23,28 +23,28 @@
       %table.table-hover.table-custom
         %tr
           %th Rank
-          %th ID
+          %th Email
         - @scs.each_with_index do |row, index|
           %tr
             %td
               = index + 1
             %td
-              = row[0]
+              = User.find(row[0]).email
 .panel.panel-info
   .panel-heading
-    Schedule Caste Result
+    Schedule Tribe Result
   .panel-body
     .table-responsive
       %table.table-hover.table-custom
         %tr
           %th Rank
-          %th ID
+          %th Email
         - @sts.each_with_index do |row, index|
           %tr
             %td
               = index + 1
             %td
-              = row[0]
+              = User.find(row[0]).email
 .panel.panel-info
   .panel-heading
     Other Backward Caste 'A' Result
@@ -53,13 +53,13 @@
       %table.table-hover.table-custom
         %tr
           %th Rank
-          %th ID
+          %th Email
         - @obcas.each_with_index do |row, index|
           %tr
             %td
               = index + 1
             %td
-              = row[0]
+              = User.find(row[0]).email
 .panel.panel-info
   .panel-heading
     Other Backward Caste 'B' Result
@@ -68,10 +68,10 @@
       %table.table-hover.table-custom
         %tr
           %th Rank
-          %th ID
+          %th Email
         - @obcbs.each_with_index do |row, index|
           %tr
             %td
               = index + 1
             %td
-              = row[0]
+              = User.find(row[0]).email
