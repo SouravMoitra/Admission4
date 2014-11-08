@@ -31,7 +31,7 @@ $(function(){
       dataType: "html"
     });
     request.done(function(response){
-      formsubjects = $(response).find("#subject-entries")
+      formsubjects = $(response).find("#subject-entries");
       $("#sub-entry").html(formsubjects);
     });
   });

@@ -3,7 +3,6 @@ $(function(){
   var request;
   $("#verify-btn").on('click', function(event){
     event.preventDefault();
-    alert(1);
   });
   $("#search-btn").on('click', function() {
     search = $("#search-in").val();
@@ -12,7 +11,6 @@ $(function(){
     } else {
       whattosearch = 'id';
     }
-    alert(search);
     if (whattosearch === 'id') {
       request = $.ajax({
         url: "/search",

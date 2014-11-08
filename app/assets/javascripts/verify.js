@@ -2,7 +2,6 @@ $(function(){
   $("#verify-btn").on('click', function(event){
     event.preventDefault();
     user_id = $("#user-id").val();
-    alert(user_id);
       event.preventDefault();
       request = $.ajax({
         url: "/verify/doverify",
