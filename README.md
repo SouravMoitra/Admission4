@@ -36,7 +36,8 @@ or from if deployed in heroku
 The site can be administerd by openin "/admin"
 
 and signin with email: "admin@example.com" and password: "password"
-and Verifier a user using the following command
+
+Verifier a user using the following command
 
 ```ruby
   > User.create(email: "your@email.com", password: "password", password_confirmation: "confirmation", verifier: true)
