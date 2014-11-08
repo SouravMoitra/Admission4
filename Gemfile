@@ -51,6 +51,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'activeadmin', github: 'activeadmin'
 gem 'friendly_id'
+gem 'foreigner'
 
 group :production do
   gem 'rails_12factor'

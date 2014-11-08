@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141108114226) do
+ActiveRecord::Schema.define(version: 20141108134216) do
 
   create_table "academics", force: true do |t|
     t.integer  "user_id",                                                null: false
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 20141108114226) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "academics", ["user_id"], name: "academics_user_id_fk", using: :btree
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -55,6 +57,8 @@ ActiveRecord::Schema.define(version: 20141108114226) do
     t.datetime "updated_at"
     t.string   "country"
   end
+
+  add_index "addresses", ["personal_id"], name: "addresses_personal_id_fk", using: :btree
 
   create_table "admin_users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -89,6 +93,8 @@ ActiveRecord::Schema.define(version: 20141108114226) do
     t.string   "photo"
   end
 
+  add_index "personals", ["user_id"], name: "personals_user_id_fk", using: :btree
+
   create_table "stream_selectors", force: true do |t|
     t.integer  "user_id"
     t.integer  "stream_id"
@@ -97,6 +103,9 @@ ActiveRecord::Schema.define(version: 20141108114226) do
     t.datetime "updated_at"
     t.boolean  "verified",         default: false
   end
+
+  add_index "stream_selectors", ["stream_id"], name: "stream_selectors_stream_id_fk", using: :btree
+  add_index "stream_selectors", ["user_id"], name: "stream_selectors_user_id_fk", using: :btree
 
   create_table "streams", force: true do |t|
     t.string   "name"
@@ -125,6 +134,7 @@ ActiveRecord::Schema.define(version: 20141108114226) do
   end
 
   add_index "sub_str_maps", ["stream_id", "subject_id"], name: "index_sub_str_maps_on_stream_id_and_subject_id", unique: true, using: :btree
+  add_index "sub_str_maps", ["subject_id"], name: "sub_str_maps_subject_id_fk", using: :btree
 
   create_table "subject_entries", force: true do |t|
     t.integer  "academic_id"
@@ -161,5 +171,19 @@ ActiveRecord::Schema.define(version: 20141108114226) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  add_foreign_key "academics", "users", name: "academics_user_id_fk"
+
+  add_foreign_key "addresses", "personals", name: "addresses_personal_id_fk"
+
+  add_foreign_key "personals", "users", name: "personals_user_id_fk"
+
+  add_foreign_key "stream_selectors", "streams", name: "stream_selectors_stream_id_fk"
+  add_foreign_key "stream_selectors", "users", name: "stream_selectors_user_id_fk"
+
+  add_foreign_key "sub_str_maps", "streams", name: "sub_str_maps_stream_id_fk"
+  add_foreign_key "sub_str_maps", "subjects", name: "sub_str_maps_subject_id_fk"
+
+  add_foreign_key "subject_entries", "academics", name: "subject_entries_academic_id_fk"
 
 end
