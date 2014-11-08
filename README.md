@@ -33,21 +33,17 @@ or from if deployed in heroku
 ```bash
   $ heroku run rails console
 ```
+The site can be administerd by openin "/admin"
 
-and Create a user using the following command
-
-```ruby
-  > User.create(email: "your@email.com", password: "password", password_confirmation: "confirmation", level: 1)
-```
-
-The above command creates administrative user whose which is known by level: 1 with email: 'your@email.com'
-and password: password. This user can setup Streams, subjects and marks required for admission
-
-Similarly there is verfier who can manually verify documents of the candidate and just mark it verified afterwards
+and signin with email: "admin@example.com" and password: "password"
+and Verifier a user using the following command
 
 ```ruby
-  > User.create(email: "your@email.com", password: "password", password_confirmation: "confirmation", level: 2)
+  > User.create(email: "your@email.com", password: "password", password_confirmation: "confirmation", verifier: true)
 ```
+
+The above command creates verifier user with email: 'your@email.com'
+and password: password. Verfier can manually verify documents of the candidate and just mark it verified afterwards
 
 After this has been setup the candidates can fill up their details
 
