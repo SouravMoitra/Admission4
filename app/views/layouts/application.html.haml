@@ -17,9 +17,10 @@
     = csrf_meta_tags
     = render 'layouts/htmlshim'
   %body
-    %header
-      = render 'layouts/navbar'
-    = render 'layouts/flash'
-    .body.container-fluid
-      = yield
-    = render 'layouts/footer'
+    .container-fluid
+      .row
+        .col-sm-12.col-md-8.col-md-offset-2
+          = render 'layouts/navbar'
+          = render 'layouts/flash'
+          = yield
+          = render 'layouts/footer'

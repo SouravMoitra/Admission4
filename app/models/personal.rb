@@ -7,8 +7,8 @@ class Personal < ActiveRecord::Base
   #***************************************************************************#
   belongs_to :user
   has_one :address, dependent: :destroy
-  validates :first_name, presence: true, length: { maximum: 24}
-  validates :last_name, presence: true, length: { maximum: 24}
+  validates :first_name, presence: true, length: { in: 5..24}
+  validates :last_name, presence: true, length: { in: 5..24}
   validates :date_of_birth, presence: true
   validates :gender, presence: true, length: { maximum: 1}, inclusion: { in: %w(M F 0) }
   validates :category, presence: true, length: {maximum: 5}, inclusion: { in: %w(GEN SC ST OBC_A OBC_B) }

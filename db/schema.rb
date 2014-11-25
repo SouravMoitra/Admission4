@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20141108134216) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "academics", force: true do |t|
     t.integer  "user_id",                                                null: false
     t.integer  "tenth_rollno",                                           null: false
@@ -27,8 +30,6 @@ ActiveRecord::Schema.define(version: 20141108134216) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "academics", ["user_id"], name: "academics_user_id_fk", using: :btree
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -57,8 +58,6 @@ ActiveRecord::Schema.define(version: 20141108134216) do
     t.datetime "updated_at"
     t.string   "country"
   end
-
-  add_index "addresses", ["personal_id"], name: "addresses_personal_id_fk", using: :btree
 
   create_table "admin_users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -93,8 +92,6 @@ ActiveRecord::Schema.define(version: 20141108134216) do
     t.string   "photo"
   end
 
-  add_index "personals", ["user_id"], name: "personals_user_id_fk", using: :btree
-
   create_table "stream_selectors", force: true do |t|
     t.integer  "user_id"
     t.integer  "stream_id"
@@ -103,9 +100,6 @@ ActiveRecord::Schema.define(version: 20141108134216) do
     t.datetime "updated_at"
     t.boolean  "verified",         default: false
   end
-
-  add_index "stream_selectors", ["stream_id"], name: "stream_selectors_stream_id_fk", using: :btree
-  add_index "stream_selectors", ["user_id"], name: "stream_selectors_user_id_fk", using: :btree
 
   create_table "streams", force: true do |t|
     t.string   "name"
@@ -134,7 +128,6 @@ ActiveRecord::Schema.define(version: 20141108134216) do
   end
 
   add_index "sub_str_maps", ["stream_id", "subject_id"], name: "index_sub_str_maps_on_stream_id_and_subject_id", unique: true, using: :btree
-  add_index "sub_str_maps", ["subject_id"], name: "sub_str_maps_subject_id_fk", using: :btree
 
   create_table "subject_entries", force: true do |t|
     t.integer  "academic_id"

@@ -5,79 +5,75 @@
 -#   Date : October 5th 2014                                                 #
 -#***************************************************************************#
 - provide(:title, "New Personal")
-.row
-  .col-md-8.col-md-offset-2.col-sm-10.col-sm-offset-1.col-xs-12.col-xs-offset-0
-    .panel.panel-primary
-      .panel-heading
-        Fill up your personal Details
-      .panel-body
-        = form_for @personal, data: {confirm: "Are you sure information once submitted cant be modified ?"} do |f|
-          - if @personal.errors.any?
-            #error_explanation
-              %h2
-                = pluralize(@personal.errors.count, "error")
-                prohibited this candidate from being saved:
-              %ul
-                - @personal.errors.full_messages.each do |message|
-                  %li
-                    = message
-          %p.form-declaration
-            Fields marked with asterisk must be filled
-          %p
-            = f.label :first_name, "First Name *"
-            %br/
-            = f.text_field :first_name, class: "form-control", :required => true
-          %p
-            = f.label :last_name, "Last Name *"
-            %br/
-            = f.text_field :last_name, class: "form-control", :required => true
-          %p
-            = f.label :photo, "Photo *"
-            %br/
-            = f.file_field :photo, :required => true
-          %p
-            = f.label :gender,  "Male", for: "personal_gender_m"
-            = f.radio_button :gender, "M", :required => true
-            = f.label :gender,  "Female", for: "personal_gender_f"
-            = f.radio_button :gender, "F", :required => true
-          %p
-            = f.label :date_of_birth, "Date of Birth *"
-            %br/
-            = f.text_field :date_of_birth, class: "form-control", id: "date_of_birth", required: true, data: { "date-format" => "DD-MM-YYYY" }
-          %p
-            = f.label :fathers_name, "Father's Name *"
-            %br/
-            = f.text_field :fathers_name, class: "form-control", :required => true
-          %p
-            = f.label :mothers_name, "Mother's Name *"
-            %br/
-            = f.text_field :mothers_name, class: "form-control", :required => true
-          %p
-            = f.label :category, "Category *"
-            = f.select :category,  %w[GEN SC ST OBC_A OBC_B], {include_blank: true, required: true}, class: "form-control"
-          = f.fields_for :address do |add|
-            %p
-              = add.label :address_line1, "Adress Line 1 *"
-              = add.text_field :address_line1, class: "form-control", :required => true
-            %p
-              = add.label :address_line2, "Address Line 2 *"
-              = add.text_field :address_line2, class: "form-control", :required => true
-            %p
-              = add.label :town_vill, "City/town/village *"
-              = add.text_field :town_vill, class: "form-control", :required => true
-            %p
-              = add.label :district, "District *"
-              = add.text_field :district, class: "form-control", :required => true
-            %p
-              = add.label :country, "Country *"
-              = add.country_select :country, {priority: %w(IN), prompt: "Select your country"},  { class: "form-control",id: "order_country_code", required: true }
-            %p
-              = add.label :state, "State *"
-            = render partial: 'subregion_select', locals: {parent_region: add.object.country}
-            %p
-              = add.label :pin,  "Pincode *"
-              = add.number_field :pin, class: "form-control", :required => true
-          %p
-            = f.label :mobile_no,  "Mobile *"
-            = f.text_field :mobile_no,pattern: "[7-9]{1}[0-9]{9}", class: "form-control", :required => true
-          %p= f.submit "Submit", class: "btn btn-primary btn-lg"
+.panel.panel-success
+  .panel-heading
+    Fill up your personal Details
+  .panel-body
+    = form_for @personal, data: {confirm: "Are you sure information once submitted cant be modified ?"}, html: { role: "form" } do |f|
+      - if @personal.errors.any?
+        #error_explanation
+          %h2
+            = pluralize(@personal.errors.count, "error")
+            prohibited this candidate from being saved:
+          %ul
+            - @personal.errors.full_messages.each do |message|
+              %li
+                = message
+      %p.form-declaration
+        Fields marked with asterisk must be filled
+      .container-fluid
+        .row
+          .col-sm-12.col-md-6
+            .form-group
+              = f.label :first_name, "First Name *"
+              = f.text_field :first_name, class: "form-control", :required => true
+          .col-sm-12.col-md-6
+            .form-group
+              = f.label :last_name, "Last Name *"
+              = f.text_field :last_name, class: "form-control", :required => true
+      .form-group
+        = f.label :photo, "Photo *"
+        = f.file_field :photo, :required => true
+      .form-group
+        = f.label :gender,  "Male", for: "personal_gender_m"
+        = f.radio_button :gender, "M", :required => true
+        = f.label :gender,  "Female", for: "personal_gender_f"
+        = f.radio_button :gender, "F", :required => true
+      .form-group
+        = f.label :date_of_birth, "Date of Birth *"
+        = f.text_field :date_of_birth, class: "form-control", id: "date_of_birth", required: true, data: { "date-format" => "DD-MM-YYYY" }
+      .form-group
+        = f.label :fathers_name, "Father's Name *"
+        = f.text_field :fathers_name, class: "form-control", :required => true
+      .form-group
+        = f.label :mothers_name, "Mother's Name *"
+        = f.text_field :mothers_name, class: "form-control", :required => true
+      .form-group
+        = f.label :category, "Category *"
+        = f.select :category,  %w[GEN SC ST OBC_A OBC_B], {include_blank: true, required: true}, class: "form-control"
+      = f.fields_for :address do |add|
+        .form-group
+          = add.label :address_line1, "Adress Line 1 *"
+          = add.text_field :address_line1, class: "form-control", :required => true
+        .form-group
+          = add.label :address_line2, "Address Line 2 *"
+          = add.text_field :address_line2, class: "form-control", :required => true
+        .form-group
+          = add.label :town_vill, "City/town/village *"
+          = add.text_field :town_vill, class: "form-control", :required => true
+        .form-group
+          = add.label :district, "District *"
+          = add.text_field :district, class: "form-control", :required => true
+        .form-group
+          = add.label :country, "Country *"
+          = add.country_select :country, {priority: %w(IN), prompt: "Select your country"},  { class: "form-control",id: "order_country_code", required: true }
+        .form-group
+          = add.label :state, "State *"
+        = render partial: 'subregion_select', locals: {parent_region: add.object.country}
+        .form-group
+          = add.label :pin,  "Pincode *"
+          = add.number_field :pin, class: "form-control", :required => true
+      .form-group
+        = f.label :mobile_no,  "Mobile *"
+        = f.text_field :mobile_no,pattern: "[7-9]{1}[0-9]{9}", class: "form-control", :required => true
+      .form-group= f.submit "Submit", class: "btn btn-primary btn-lg"

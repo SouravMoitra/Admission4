@@ -1,7 +1,7 @@
 class Address < ActiveRecord::Base
 	belongs_to :personal
-	validates :address_line1, presence: true, length: { in: 5..15 }
-	validates :address_line2, length: {in: 5..15 }
+	validates :address_line1, presence: true, length: { in: 5..50 }
+	validates :address_line2, length: {in: 5..50 }
 	validates :town_vill, presence: true
 	validates :district, presence: true
 	validates :state, presence: true

@@ -5,23 +5,20 @@
 -#   Date : October 5th 2014                                                 #
 -#***************************************************************************#
 - provide(:title, "Stream select")
-.row
-  .col-md-8.col-md-offset-2.col-sm-10.col-sm-offset-1.col-xs-12.col-xs-offset-0
-    .panel.panel-primary
-      .panel-heading
-        Select your stream
-      .panel-body
-        = form_for @stream_selector, role: "form", data: {confirm: "Are you sure information once submitted cant be modified ?"} do |f|
-          - if @stream_selector.errors.any?
-            #error_explanation
-              %h2
-                = pluralize(@stream_selector.errors.count, "error")
-                prohibited this candidate from being saved:
-              %ul
-                - @stream_selector.errors.full_messages.each do |message|
-                  %li= message
-          %p
-            = f.label "Choose your stream *"
-            %br/
-            = f.select :stream_id, Stream.all.collect { |c| [c.name, c.id]}, {}, {class: "form-control", required: true}
-          %p= f.submit "Submit", class: "btn btn-primary btn-lg"
+.panel.panel-success
+  .panel-heading
+    Select your stream
+  .panel-body
+    = form_for @stream_selector, html: {role: "form"}, data: {confirm: "Are you sure information once submitted cant be modified ?"} do |f|
+      - if @stream_selector.errors.any?
+        #error_explanation
+          %h2
+            = pluralize(@stream_selector.errors.count, "error")
+            prohibited this candidate from being saved:
+          %ul
+            - @stream_selector.errors.full_messages.each do |message|
+              %li= message
+      .form-group
+        = f.label "Choose your stream *"
+        = f.select :stream_id, Stream.all.collect { |c| [c.name, c.id]}, {}, {class: "form-control", required: true}
+      %p= f.submit "Submit", class: "btn btn-primary btn-lg"
