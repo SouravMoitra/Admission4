@@ -6,12 +6,14 @@
 -#***************************************************************************#
 - provide(:title, "Home")
 - if  is_verifier?
-  %h1
-    Verifiers Page
-
-  .row
-    .col-md-2.col-md-offset-5
-      = link_to "Verifer page", verify_path, class: "btn btn-primary btn-lg"
+  .jumbotron
+    %h1
+      Verifiers Page
+    .container-fluid
+      .row
+        .col-md-2.col-md-offset-5
+          = link_to "Verifer page", verify_path, class: "btn btn-primary btn-lg"
 - else
   = render 'user'
-  = render 'userdata'
+  .container-fluid
+    = render 'userdata'

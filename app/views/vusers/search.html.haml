@@ -20,6 +20,10 @@
 
       - if @user.try(:personal)
         %tr
+          %td.info Photo
+          %td
+            = image_tag(@user.personal.photo_url, width: "80", height: "80", alt: "Image")
+        %tr
           %td.info First name
           %td
             = @user.personal.first_name

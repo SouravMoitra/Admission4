@@ -14,12 +14,11 @@ $bak-error: #F3A9A9;
 }
 body {
   font-family: 'Droid Sans', sans-serif;
-  padding: 10px;
-  min-height: 100%;
+  margin: 5px 0;
   h1 {
     text-align: center;
     padding-bottom: 10px;
-    margin: 20px 0px 15px;
+    margin: 10px 0px 15px;
   }
   label {
     color: #0B610B;
@@ -45,13 +44,6 @@ body {
 
 
 @media (max-width: 768px) {
-  body {
-    width: 100%;
-    margin: 50px 0 0 0;
-    }
-  .sign {
-    margin: 10px 0px;
-  }
 }
 
 @media (max-height: 300px) {
@@ -101,12 +93,6 @@ body {
   }
 }
 
-
-.alert {
-  margin: 5px 10px;
-}
-
-
 .alert-alert {
   @extend .alert-danger;
 }
@@ -146,6 +132,11 @@ thead {
 
 .input-group-addon {
   height: 15px;
+}
+
+.false-label {
+  font-weight: bolder;
+  color: #0B610B;
 }
 
 .modifieddropdown {

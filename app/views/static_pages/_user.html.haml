@@ -13,14 +13,14 @@
       %p.steps
         Step 1: Complete your personal details
         %br/
-        = link_to "Personal Details", new_personal_path, class: "btn btn-danger btn-lg center-btn"
+        = link_to "Personal Details", new_personal_path, class: "btn btn-success btn-lg center-btn"
     - elsif !current_user.personal
       %p.three-steps
         2 steps to Form Submission
       %p.steps
         Step 2: Complete your personal details
         %br/
-        = link_to "Personal Details", new_personal_path, class: "btn btn-danger btn-lg center-btn"
+        = link_to "Personal Details", new_personal_path, class: "btn btn-success btn-lg center-btn"
 
     - elsif  !current_user.try(:academic) && !current_user.try( :stream_selector ) && current_user.personal
       %p.three-steps
@@ -28,14 +28,14 @@
       %p.steps
         Step 2: Fill up your academic details
         %br/
-        = link_to "Academic Details", new_academic_path, class: "btn btn-danger center-btn btn-lg"
+        = link_to "Academic Details", new_academic_path, class: "btn btn-success center-btn btn-lg"
     - elsif current_user.try(:academic) && !current_user.try( :stream_selector ) && current_user.personal
       %p.three-steps
         Last step to Form Submission
       %p.steps
         Step 3: Choose your Stream
         %br/
-        = link_to "Stream  selector", new_stream_selector_path, class: "btn btn-danger btn-lg center-btn"
+        = link_to "Stream  selector", new_stream_selector_path, class: "btn btn-success btn-lg center-btn"
     - elsif current_user.try(:academic) && current_user.try( :stream_selector ) && current_user.try(:personal)
       %p.three-steps
         Your application has been submitted successfully

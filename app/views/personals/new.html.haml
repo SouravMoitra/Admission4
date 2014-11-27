@@ -31,49 +31,73 @@
             .form-group
               = f.label :last_name, "Last Name *"
               = f.text_field :last_name, class: "form-control", :required => true
-      .form-group
-        = f.label :photo, "Photo *"
-        = f.file_field :photo, :required => true
-      .form-group
-        = f.label :gender,  "Male", for: "personal_gender_m"
-        = f.radio_button :gender, "M", :required => true
-        = f.label :gender,  "Female", for: "personal_gender_f"
-        = f.radio_button :gender, "F", :required => true
-      .form-group
-        = f.label :date_of_birth, "Date of Birth *"
-        = f.text_field :date_of_birth, class: "form-control", id: "date_of_birth", required: true, data: { "date-format" => "DD-MM-YYYY" }
-      .form-group
-        = f.label :fathers_name, "Father's Name *"
-        = f.text_field :fathers_name, class: "form-control", :required => true
-      .form-group
-        = f.label :mothers_name, "Mother's Name *"
-        = f.text_field :mothers_name, class: "form-control", :required => true
-      .form-group
-        = f.label :category, "Category *"
-        = f.select :category,  %w[GEN SC ST OBC_A OBC_B], {include_blank: true, required: true}, class: "form-control"
+        .row
+          .col-sm-12.col-md-6
+            .form-group
+              = f.label :photo, "Photo *"
+              = f.file_field :photo, :required => true
+          .col-sm-12.col-md-6
+            .form-group
+              %p.false-label Gender* :
+              = f.label :gender,  "Male", for: "personal_gender_m"
+              = f.radio_button :gender, "M", :required => true
+              = f.label :gender,  "Female", for: "personal_gender_f"
+              = f.radio_button :gender, "F", :required => true
+        .row
+          .col-sm-12.col-md-6
+            .form-group
+              = f.label :date_of_birth, "Date of Birth *"
+              = f.text_field :date_of_birth, class: "form-control", id: "date_of_birth", required: true, data: { "date-format" => "DD-MM-YYYY" }
+          .col-sm-12.col-md-6
+            .form-group
+              = f.label :category, "Category *"
+              = f.select :category,  %w[GEN SC ST OBC_A OBC_B], {include_blank: true, required: true}, class: "form-control"
+        .row
+          .col-sm-12.col-md-6
+            .form-group
+              = f.label :fathers_name, "Father's Name *"
+              = f.text_field :fathers_name, class: "form-control", :required => true
+          .col-sm-12.col-md-6
+            .form-group
+              = f.label :mothers_name, "Mother's Name *"
+              = f.text_field :mothers_name, class: "form-control", :required => true
       = f.fields_for :address do |add|
-        .form-group
-          = add.label :address_line1, "Adress Line 1 *"
-          = add.text_field :address_line1, class: "form-control", :required => true
-        .form-group
-          = add.label :address_line2, "Address Line 2 *"
-          = add.text_field :address_line2, class: "form-control", :required => true
-        .form-group
-          = add.label :town_vill, "City/town/village *"
-          = add.text_field :town_vill, class: "form-control", :required => true
-        .form-group
-          = add.label :district, "District *"
-          = add.text_field :district, class: "form-control", :required => true
-        .form-group
-          = add.label :country, "Country *"
-          = add.country_select :country, {priority: %w(IN), prompt: "Select your country"},  { class: "form-control",id: "order_country_code", required: true }
-        .form-group
-          = add.label :state, "State *"
-        = render partial: 'subregion_select', locals: {parent_region: add.object.country}
-        .form-group
-          = add.label :pin,  "Pincode *"
-          = add.number_field :pin, class: "form-control", :required => true
-      .form-group
-        = f.label :mobile_no,  "Mobile *"
-        = f.text_field :mobile_no,pattern: "[7-9]{1}[0-9]{9}", class: "form-control", :required => true
-      .form-group= f.submit "Submit", class: "btn btn-primary btn-lg"
+        .container-fluid
+          .row
+            .col-sm-12.col-md-6
+              .form-group
+                = add.label :address_line1, "Adress Line 1 *"
+                = add.text_field :address_line1, class: "form-control", :required => true
+            .col-sm-12.col-md-6
+              .form-group
+                = add.label :address_line2, "Address Line 2 *"
+                = add.text_field :address_line2, class: "form-control", :required => true
+          .row
+            .col-sm-12.col-md-6
+              .form-group
+                = add.label :town_vill, "City/town/village *"
+                = add.text_field :town_vill, class: "form-control", :required => true
+            .col-sm-12.col-md-6
+              .form-group
+                = add.label :district, "District *"
+                = add.text_field :district, class: "form-control", :required => true
+          .row
+            .col-sm-12.col-md-6
+              .form-group
+                = add.label :country, "Country *"
+                = add.country_select :country, {priority: %w(IN), prompt: "Select your country"},  { class: "form-control",id: "order_country_code", required: true }
+            .col-sm-12.col-md-6
+              .form-group
+                = add.label :state, "State *"
+              = render partial: 'subregion_select', locals: {parent_region: add.object.country}
+        .container-fluid
+          .row
+            .col-sm-12.col-md-6
+              .form-group
+                = add.label :pin,  "Pincode *"
+                = add.number_field :pin, class: "form-control", :required => true
+            .col-sm-12.col-md-6
+              .form-group
+                = f.label :mobile_no,  "Mobile *"
+                = f.text_field :mobile_no,pattern: "[7-9]{1}[0-9]{9}", class: "form-control", :required => true
+          .form-group= f.submit "Submit", class: "btn btn-success btn-lg"

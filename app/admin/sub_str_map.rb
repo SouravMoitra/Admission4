@@ -1,4 +1,8 @@
-ActiveAdmin.register SubStrMap do
+ActiveAdmin.register SubStrMap  do
+  menu label: "Stream subjects maps"
+  controller do
+    before_filter { @page_title = "Stream subjects maps" }
+  end
 
 
   # See permitted parameters documentation:

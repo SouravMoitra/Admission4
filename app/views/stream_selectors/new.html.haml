@@ -21,4 +21,4 @@
       .form-group
         = f.label "Choose your stream *"
         = f.select :stream_id, Stream.all.collect { |c| [c.name, c.id]}, {}, {class: "form-control", required: true}
-      %p= f.submit "Submit", class: "btn btn-primary btn-lg"
+      %p= f.submit "Submit", class: "btn btn-success btn-lg"

@@ -23,41 +23,55 @@
       .tenth-details
         %h3 Tenth Standard Details
         %p.form-declaration As given in your 10th Mark sheet/Passing certificate
-        .form-group
-          = f.label :tenth_marks, "Marks % *"
-          %br/
-          = f.text_field :tenth_marks, class: "form-control", :required => true, value: ''
-        .form-group
-          = f.label :tenth_rollno, "Roll Number *"
-          %br/
-          = f.number_field :tenth_rollno, class: "form-control", :required => true
-        .form-group
-          = f.label :tenth_year, "Year of passing *"
-          %br/
-          = f.number_field :tenth_year, class: "form-control", :required => true
-        .form-group
-          = f.label :tenth_board, "Board *"
-          %br/
-          = f.text_field :tenth_board, class: "form-control", :required => true
+        .container-fluid
+          .row
+            .col-sm-12.col-md-6
+              .form-group
+                = f.label :tenth_marks, "Marks % *"
+                %br/
+                = f.text_field :tenth_marks, class: "form-control", :required => true, value: ''
+            .col-sm-12.col-md-6
+              .form-group
+                = f.label :tenth_rollno, "Roll Number *"
+                %br/
+                = f.number_field :tenth_rollno, class: "form-control", :required => true
+          .row
+            .col-sm-12.col-md-6
+              .form-group
+                = f.label :tenth_year, "Year of passing *"
+                %br/
+                = f.number_field :tenth_year, class: "form-control", :required => true
+            .col-sm-12.col-md-6
+              .form-group
+                = f.label :tenth_board, "Board *"
+                %br/
+                = f.text_field :tenth_board, class: "form-control", :required => true
       .tenth-details
         %h3 Twelfth Standard Details
         %p.form-declaration As given in 12th Mark sheet/Passing certificate
-        .form-group
-          = f.label :twelfth_marks, "Marks % *"
-          %br/
-          = f.text_field :twelfth_marks, class: "form-control", :required => true, value: ''
-        .form-group
-          = f.label :twelfth_rollno, "Roll number *"
-          %br/
-          = f.number_field :twelfth_rollno, class: "form-control", :required => true
-        .form-group
-          = f.label "Year of passing *"
-          %br/
-          = f.number_field :twelfth_year, class: "form-control", :required => true
-        .form-group
-          = f.label :twelfth_board,  "Board *"
-          %br/
-          = f.text_field :twelfth_board, class: "form-control", :required => true
+        .container-fluid
+          .row
+            .col-sm-12.col-md-6
+              .form-group
+                = f.label :twelfth_marks, "Marks % *"
+                %br/
+                = f.text_field :twelfth_marks, class: "form-control", :required => true, value: ''
+            .col-sm-12.col-md-6
+              .form-group
+                = f.label :twelfth_rollno, "Roll number *"
+                %br/
+                = f.number_field :twelfth_rollno, class: "form-control", :required => true
+          .row
+            .col-sm-12.col-md-6
+              .form-group
+                = f.label "Year of passing *"
+                %br/
+                = f.number_field :twelfth_year, class: "form-control", :required => true
+            .col-sm-12.col-md-6
+              .form-group
+                = f.label :twelfth_board,  "Board *"
+                %br/
+                = f.text_field :twelfth_board, class: "form-control", :required => true
       .tenth-details
         %h3 Twelfth Standard Subject Details
         %p.form-declaration As given in your 12th Mark sheet
@@ -72,4 +86,4 @@
           #sub-entry
             %h5
               Select your stream
-      .form-group= f.submit "Submit", class: "btn btn-primary btn-lg"
+      .form-group= f.submit "Submit", class: "btn btn-success btn-lg"
