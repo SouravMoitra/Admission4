@@ -47,7 +47,13 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'friendly_id'
 # for foreign keys
 gem 'foreigner'
-
+# for views
 gem 'haml'
+group :test, :development do
+  gem 'rspec-rails'
+  gem 'selenium-webdriver'
+  gem 'capybara'
+  gem 'factory_girl_rails'
+end
 
 ruby "2.1.5"

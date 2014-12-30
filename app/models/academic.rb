@@ -41,6 +41,6 @@ class Academic < ActiveRecord::Base
       errors.add('twelfth_year', "Tenth year and twelfth year cannot be equal")
     end
     errors.add('tenth_year', "Tenth year must be less than this year") if tenth_year > Date.today.year - 2
-    errors.add('twelfth_year', "Twelfth year cannot be in future") if tenth_year > Date.today.year
+    errors.add('twelfth_year', "Twelfth year cannot be in future") if twelfth_year > Date.today.year
   end
 end

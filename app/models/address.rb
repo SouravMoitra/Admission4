@@ -5,6 +5,7 @@ class Address < ActiveRecord::Base
 	validates :town_vill, presence: true
 	validates :district, presence: true
 	validates :state, presence: true
+	validates :country, presence: true
 	validates :pin, numericality: { only_integer: true }, :format => { :with => /[1-9]{1}[0-9]{5}/ }
 
 	before_validation :strip_spaces
